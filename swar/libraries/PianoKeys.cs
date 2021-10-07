@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace libraries
 {
-    class PianoKeys
+    public class PianoKeys
     {
         List<PianoKey> keys;
 

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libraries", "libraries\libr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dtos", "dtos\dtos.csproj", "{FCD794DF-33E7-4B59-B48F-6122F90E40F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "configs", "configs\configs.csproj", "{8BD7BD40-0718-438D-92E3-5E68EAC3F90C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "configs", "configs\configs.csproj", "{8BD7BD40-0718-438D-92E3-5E68EAC3F90C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

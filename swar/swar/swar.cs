@@ -11,9 +11,19 @@ namespace swar
 {
     public partial class swar : Form
     {
+        ApplicationSystem s;
+        Signature signature;
+
         public swar()
         {
             InitializeComponent();
+            this.s = new ApplicationSystem();
+            signature = new Signature() { 
+                beat_nominator = 2,
+                beat_denominator = 4,
+                beat_quantization = 1 / 4,
+                tempo = 140,
+            };
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,38 +53,17 @@ namespace swar
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+            // read only
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            Converter c = new Converter();
-            foreach(ComboItem ci in c.getConverters())
-            {
-                comboBox1.Items.Add(new ComboItem()
-                {
-                    Text = ci.Text,
-                    Value = ci.Value,
-                });
-            }
-            
-            LyricsReader lr = new LyricsReader();
-            lr.load();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            comboBox2.Items.Clear();
-            foreach (string filename in lr.getFiles())
-            {
-                comboBox2.Items.Add(new ComboItem() {
-                    Text = filename,
-                    Value = lr.lyrics(filename),
-                });
-            }
-
-            comboBox2.SelectedIndex = 0;
+            //comboBox2.SelectedIndex = 0;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            s.reboot(comboBox1, comboBox2);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,9 +73,13 @@ namespace swar
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboItem ci = (ComboItem)this.comboBox2.Items[this.comboBox2.SelectedIndex];
-            textBox1.Text = ci.Value;
-            // @todo Read the lyrics notations once again instead of caches
+            if(this.comboBox2.SelectedIndex != -1)
+            {
+                ComboItem ci = (ComboItem)this.comboBox2.Items[this.comboBox2.SelectedIndex];
+                textBox1.Text = ci.Value;
+                label1.Text = ci.ExtraValue;
+                // @todo Read the lyrics notations once again instead of caches
+            }
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -94,23 +87,14 @@ namespace swar
             // convert the notations
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            NotesLoader nl = new NotesLoader();
-            List<Tone> tones = nl.LoadNotes();
-
-            foreach (Tone t in tones)
-            {
-                // add button
-                // add click handler
-                //
-            }
-
+            // reload the file database
+            s.reboot(comboBox1, comboBox2);
         }
 
-        private void notes1_Load(object sender, EventArgs e)
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            
-        }
+                    }
     }
 }

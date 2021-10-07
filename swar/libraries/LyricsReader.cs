@@ -50,13 +50,13 @@ namespace libraries
             Signature s1 = new Signature(2, 4, 140);
             Signature s2 = new Signature(3, 4, 140);
             Signature s3 = new Signature(2, 4, 280);
-            Signature s4 = new Signature(3, 4, 280); // teej melody
+            Signature s4 = new Signature(3, 4, 280); // popular teej melody
             Signature s5 = new Signature(6, 8, 280);
 
             List<string> sargams = Configurations.sargams();
             foreach(string sargam in sargams)
             {
-                this.read(sargam, s2);
+                this.read(sargam, s4);
             }           
         }
     }

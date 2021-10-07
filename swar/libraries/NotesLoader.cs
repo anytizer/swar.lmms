@@ -5,19 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace swar
+namespace libraries
 {
     public class NotesLoader
     {
-        public NotesLoader()
-        {
-
-        }
-
         public List<Tone> LoadNotes()
         {
             List<Tone> tones = new List<Tone>();
-            // https://pages.mtu.edu/~suits/notefreqs.html
+
+            // Reference: https://pages.mtu.edu/~suits/notefreqs.html
             tones.Add(new Tone() { bgcolor = "#999999", color = "#000000", frequency = "261.63", wavelength = "131.87", name = "C" });
             tones.Add(new Tone() { bgcolor = "#999999", color = "#000000", frequency = "277.18", wavelength = "124.47", name = "C#" });
             tones.Add(new Tone() { bgcolor = "#999999", color = "#000000", frequency = "293.66", wavelength = "117.48", name = "D" });

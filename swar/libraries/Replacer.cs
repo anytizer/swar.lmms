@@ -11,9 +11,10 @@ namespace dtos
         {
             lr = new List<Replacement>();
 
-            lr.Add(new Replacement() { find = "°", replace = "*" });
             lr.Add(new Replacement() { find = "º", replace = "*" });
             lr.Add(new Replacement() { find = "™", replace = "*" });
+
+            lr.Add(new Replacement() { find = "°", replace = "*" });
             lr.Add(new Replacement() { find = "`", replace = "#" }); // sharp/flat
             lr.Add(new Replacement() { find = "'", replace = "#" }); // sharp/flat
             lr.Add(new Replacement() { find = "_", replace = "-" });

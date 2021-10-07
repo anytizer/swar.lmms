@@ -7,16 +7,11 @@ namespace libraries
 {
     public class XMLParser
     {
-        private List<Note> notes;
-
-        public XMLParser()
-        {
-            
-        }
+        private List<Cell> notes;
 
         public string generate(string scales)
         {
-            this.notes = new List<Note>(); // to reset
+            this.notes = new List<Cell>();
 
             List<string> lines = this.getLines(scales);
             foreach (string line in lines)
@@ -24,7 +19,7 @@ namespace libraries
                 List<string> divisions = this.getDivisions(line);
                 foreach (string division in divisions)
                 {
-                    List<string> columns = this.getColumns(division); 
+                    List<string> columns = this.getColumns(division);
                     foreach (string column in columns)
                     {
                         this.process(column);
@@ -36,7 +31,7 @@ namespace libraries
             return xpt;
         }
 
-        private string xpt(List<Note> notes)
+        private string xpt(List<Cell> notes)
         {
             PianoKeys pk = new PianoKeys();
 
@@ -47,7 +42,7 @@ namespace libraries
   <head/>
   <pattern steps='{0}' muted='0' name='' type='1' pos='0'>", steps);
             int pos = 0;
-            foreach (Note note in notes)
+            foreach (Cell note in notes)
             {
                 int pianoKey = pk.getPianoKey(note.key);
                 int lengthval = (int)Math.Ceiling(note.length * 48);
@@ -59,13 +54,15 @@ namespace libraries
   </pattern>
 </lmms-project>";
 
-            return xml.Replace("'", "\"");
+            xml = xml.Replace("'", "\"");
+
+            return xml;
         }
 
         private List<string> getLines(string scales)
         {
             List<string> lines = new List<string>();
-            foreach(string _line in scales.Split(new char[] { '\r', '\n' }))
+            foreach (string _line in scales.Split(new char[] { '\r', '\n' }))
             {
                 string line = _line.Trim();
                 if (line == "" || line.StartsWith("#") || line.StartsWith("x"))
@@ -102,7 +99,7 @@ namespace libraries
         private List<string> getColumns(string division)
         {
             List<string> columns = new List<string>();
-            foreach(string column in division.Split(new char[] { ' ' }))
+            foreach (string column in division.Split(new char[] { ' ' }))
             {
                 columns.Add(column);
             }
@@ -118,7 +115,6 @@ namespace libraries
                 foreach (string newnote in newnotes)
                 {
                     float newlength = 1 / newnotes.Count();
-                    // notes.Add(new Note(newnote, newlength));
                     this.append(newnote, newlength);
 
                     // @todo Handle the case of - half note
@@ -130,15 +126,13 @@ namespace libraries
                 {
                     notes.Last().length += 1;
                 }
-                else
-                {
-                    // error
-                    // add blank note
-                }
+            }
+            else if (column == "x")
+            {
+                // add blank note
             }
             else if (column != "")
             {
-                //notes.Add(new Note(column, 1));
                 this.append(column, 1);
             }
 
@@ -147,7 +141,7 @@ namespace libraries
 
         private void append(string cell, float length)
         {
-            this.notes.Add(new Note(cell, length));
+            this.notes.Add(new Cell(cell, length));
         }
     }
 }
