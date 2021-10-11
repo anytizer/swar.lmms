@@ -21,7 +21,7 @@ namespace tests
             r.DeleteEnglishNotations();
             //Assert.IsFalse(r.EnglishNotationsExist());
 
-            string sargams = "sa*";
+            string sargams = "sa*'";
             Signature signature = new Signature(3, 4, 280);
 
             string scales = s.convert(sargams, signature);

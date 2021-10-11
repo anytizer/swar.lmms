@@ -13,7 +13,7 @@ namespace dtos
 
             // oddities
             lr.Add(new Replacement() { find = "º", replace = "*" });
-            lr.Add(new Replacement() { find = "™", replace = "*" });
+            lr.Add(new Replacement() { find = "™", replace = "#" });
 
             // common symbols
             lr.Add(new Replacement() { find = "°", replace = "*" });
@@ -23,7 +23,7 @@ namespace dtos
             lr.Add(new Replacement() { find = "~", replace = "-" });
             lr.Add(new Replacement() { find = "/", replace = "|" });
 
-            // to sargam standards - single letter
+            // to sargam - single letter
             lr.Add(new Replacement() { find = "a", replace = "" });
             lr.Add(new Replacement() { find = "e", replace = "" });
             lr.Add(new Replacement() { find = "i", replace = "" });

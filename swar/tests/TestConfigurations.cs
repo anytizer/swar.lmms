@@ -7,7 +7,7 @@ using System.IO;
 namespace tests
 {
     [TestClass]
-    public class TestGeneral
+    public class TestConfigurations
     {
         [TestMethod]
         public void TestName()

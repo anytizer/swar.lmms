@@ -7,10 +7,10 @@ using System.IO;
 namespace tests
 {
     [TestClass]
-    public class UnitTest1
+    public class TestColors
     {
         [TestMethod]
-        public void TestColors()
+        public void TestColorRotation()
         {
             ColorsRotator cr = new ColorsRotator();
             

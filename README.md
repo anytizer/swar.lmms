@@ -1,15 +1,13 @@
 # swar
 Convert SARGAM Notes to English Scales and XPT Pattern Files.
 
-# Considerations
-
 ## ReadWriteDirectory
 The project reads a defined directory to read/write operations.
 Every time an LMMS XPT File is genereated, it will be written here.
 
 ## Sargams - read array, File List
-When the application starts, it reads the sargam notations from sargams.txt file.
-Each line mentions a project's full path to a sargam note.
+When the application starts, it reads the sargam notations from `sargams.txt` file.
+Each line mentions a full path of a sargam note.
 A `#` character can be used as a comment, when used in the front of the line.
 
 ## To use with LMMS Software

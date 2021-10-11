@@ -8,17 +8,17 @@
         public int line { get; set; }
 
         /**
-         * Vertical division number
+         * Vertical division number seprated by |
          */
         public int division { get; set; }
 
         /**
-         * Column number within a division
+         * Column number within a division seprated by [space]
          */
         public int column { get; set; }
 
         /**
-         * Position within column
+         * Position within column separated by [comma]
          */
         public int position { get; set; }
 

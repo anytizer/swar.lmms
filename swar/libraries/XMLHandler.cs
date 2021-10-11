@@ -13,8 +13,8 @@ namespace libraries
             // line number
             // division number
             // column number
-            // position number of a cell in column: eg.: C,D
-            // actual note
+            // position number within a cell: eg.: C,D
+            // actual notation
             // play length factor
         }
 
@@ -87,7 +87,7 @@ namespace libraries
 
                         if (column.Contains(","))
                         {
-                            int elements = column.Count(s => s == ',') + 1;
+                            int elements = column.Count(s => s == ',') + 1; 
                             float semilength = 1.0f / elements; // @todo Avoid division by zero
                             List<string> notations = this.getNotations(column);
                             foreach (string seminote in notations)

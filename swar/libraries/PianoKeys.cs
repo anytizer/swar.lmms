@@ -33,7 +33,7 @@ namespace libraries
 
         internal void register(string name, int key)
         {
-            keys.Add(new PianoKey(name, key));
+            keys.Add(new PianoKey() { name = name, key = key});
         }
 
         internal int search(string name)
