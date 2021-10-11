@@ -11,9 +11,11 @@ namespace dtos
         {
             lr = new List<Replacement>();
 
+            // oddities
             lr.Add(new Replacement() { find = "º", replace = "*" });
             lr.Add(new Replacement() { find = "™", replace = "*" });
 
+            // common symbols
             lr.Add(new Replacement() { find = "°", replace = "*" });
             lr.Add(new Replacement() { find = "`", replace = "#" }); // sharp/flat
             lr.Add(new Replacement() { find = "'", replace = "#" }); // sharp/flat
@@ -21,11 +23,13 @@ namespace dtos
             lr.Add(new Replacement() { find = "~", replace = "-" });
             lr.Add(new Replacement() { find = "/", replace = "|" });
 
+            // to sargam standards - single letter
             lr.Add(new Replacement() { find = "a", replace = "" });
             lr.Add(new Replacement() { find = "e", replace = "" });
             lr.Add(new Replacement() { find = "i", replace = "" });
             lr.Add(new Replacement() { find = "h", replace = "" }); // Dha
 
+            // to sargam standards - multi letters
             lr.Add(new Replacement() { find = "s", replace = "sa" });
             lr.Add(new Replacement() { find = "r", replace = "re" });
             lr.Add(new Replacement() { find = "g", replace = "ga" });
@@ -35,6 +39,7 @@ namespace dtos
             lr.Add(new Replacement() { find = "dh", replace = "dha" });
             lr.Add(new Replacement() { find = "n", replace = "ni" });
 
+            // to english scales
             lr.Add(new Replacement() { find = "sa", replace = "C" });
             lr.Add(new Replacement() { find = "re", replace = "D" });
             lr.Add(new Replacement() { find = "ga", replace = "E" });
@@ -44,7 +49,7 @@ namespace dtos
             lr.Add(new Replacement() { find = "ni", replace = "B" });
         }
 
-        public string replace(string sargam)
+        private string replace(string sargam)
         {
             string scales = sargam; // .ToLower();
             foreach (Replacement r in lr)
@@ -61,8 +66,8 @@ namespace dtos
             string[] lines = scales.Split(new[] { '\r', '\n' });
             List<string> output = new List<string>();
 
+            int line_number = 0;
             Formatter f = new Formatter();
-            int linenumber = 0;
 
             for (int i = 0; i < lines.Length; ++i)
             {
@@ -71,10 +76,10 @@ namespace dtos
                 {
                     if (!line.StartsWith("#"))
                     {
-                        ++linenumber;
-                        line = line.ToLower();
+                        ++line_number;
+
                         line = this.replace(line.ToLower());
-                        output.Add(string.Format("{0,2}: {1}", linenumber, f.format_divisions(line)));
+                        output.Add(string.Format("{0,2}: {1}", line_number, f.format_divisions(line)));
                     }
                     else
                     {

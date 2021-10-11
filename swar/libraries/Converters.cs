@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace libraries
 {
-    public class Converter
+    public class Converters
     {
         public List<ComboItem> getConverters()
         {
@@ -13,18 +13,21 @@ namespace libraries
             {
                 Text = "Single Character Representation",
                 Value = "1",
+                ExtraValue = "",
             });
 
             ci.Add(new ComboItem()
             {
                 Text = "Proper Sargam Representation",
                 Value = "2",
+                ExtraValue = "",
             });
 
             ci.Add(new ComboItem()
             {
                 Text = "Pre-Converted Scales",
                 Value = "3",
+                ExtraValue = "",
             });
 
             return ci;

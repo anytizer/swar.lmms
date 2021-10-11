@@ -11,6 +11,12 @@ namespace libraries
         public PianoKeys()
         {
             this.keys = new List<PianoKey>(); // to reset
+
+            this.fill();
+        }
+
+        private void fill()
+        {
             this.register("C", 0);
             this.register("C#", 1);
             this.register("D", 2);

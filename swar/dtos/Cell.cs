@@ -2,13 +2,43 @@
 {
     public class Cell
     {
-        public string key { get; set; }
+        /**
+         * On which line number of the notation file
+         */
+        public int line { get; set; }
+
+        /**
+         * Vertical division number
+         */
+        public int division { get; set; }
+
+        /**
+         * Column number within a division
+         */
+        public int column { get; set; }
+
+        /**
+         * Position within column
+         */
+        public int position { get; set; }
+
+        /**
+         * Notation
+         */
+        public string notation { get; set; }
+
+        /**
+         * Beat length controller
+         * eg. 1.00, 0.50, 0.33, 0.25
+         */
         public float length { get; set; }
 
-        public Cell(string _key, float _length)
+        /**
+         * Dump when debugging
+         */
+        public override string ToString()
         {
-            this.key = _key;
-            this.length = _length;
+            return string.Format("{0}: {1}", this.notation, this.length);
         }
     }
 }

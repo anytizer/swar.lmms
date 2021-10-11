@@ -53,7 +53,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(329, 13);
+            this.textBox2.Location = new System.Drawing.Point(332, 12);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.PlaceholderText = "English Scales";
@@ -139,9 +139,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(329, 572);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.Size = new System.Drawing.Size(151, 15);
             this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.label1.Text = "Please choose a Sargam Fle";
             // 
             // swar
             // 

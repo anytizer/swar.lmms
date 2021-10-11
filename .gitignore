@@ -1,3 +1,4 @@
 /swar/**/bin
 /swar/**/obj
 /swar/.vs
+/swar/TestResults

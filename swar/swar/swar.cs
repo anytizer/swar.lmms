@@ -18,12 +18,7 @@ namespace swar
         {
             InitializeComponent();
             this.s = new ApplicationSystem();
-            signature = new Signature() { 
-                beat_nominator = 2,
-                beat_denominator = 4,
-                beat_quantization = 1 / 4,
-                tempo = 140,
-            };
+            this.signature = new Signature(3, 4, 280);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,19 +26,10 @@ namespace swar
             this.convert2scales();
         }
 
-        public void convert2scales()
+        private void convert2scales()
         {
-            string sargam = textBox1.Text;
-
-            Replacer r = new Replacer();
-            string scales = r.process(sargam);
-            textBox2.Text = scales;
-
-            XMLParser xml = new XMLParser();
-            string xpt = xml.generate(scales);
-
-            File.WriteAllText(Configurations.ReadWriteDirectory + "/lmms.xpt", xpt);
-            File.WriteAllText(Configurations.ReadWriteDirectory + "/notations-english.txt", scales);
+            ApplicationSystem s = new ApplicationSystem();
+            textBox2.Text = s.convert(textBox1.Text, signature);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -63,7 +49,36 @@ namespace swar
             //comboBox2.SelectedIndex = 0;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            s.reboot(comboBox1, comboBox2);
+            this.reboot();
+        }
+
+        private void reboot()
+        {
+            comboBox1.Items.Clear();
+            Converters c = new Converters();
+            foreach (ComboItem ci in c.getConverters())
+            {
+                comboBox1.Items.Add(new ComboItem()
+                {
+                    Text = ci.Text,
+                    Value = ci.Value,
+                    ExtraValue = "",
+                });
+            }
+
+            LyricsReader lr = new LyricsReader();
+            lr.load();
+
+            comboBox2.Items.Clear();
+            foreach (string filename in lr.getFiles())
+            {
+                comboBox2.Items.Add(new ComboItem()
+                {
+                    Text = Helpers.SongTitle(filename),
+                    Value = lr.lyrics(filename),
+                    ExtraValue = filename,
+                });
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,7 +88,7 @@ namespace swar
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(this.comboBox2.SelectedIndex != -1)
+            if (this.comboBox2.SelectedIndex != -1)
             {
                 ComboItem ci = (ComboItem)this.comboBox2.Items[this.comboBox2.SelectedIndex];
                 textBox1.Text = ci.Value;
@@ -90,11 +105,11 @@ namespace swar
         private void button2_Click(object sender, EventArgs e)
         {
             // reload the file database
-            s.reboot(comboBox1, comboBox2);
+            this.reboot();
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-                    }
+        }
     }
 }

@@ -10,11 +10,11 @@ namespace libraries
             List<string> output = new List<string>();
 
             string[] divisions = line.Split(new[] { '|', });
-            foreach (string d in divisions)
+            foreach (string division in divisions)
             {
-                if (d != "")
+                if (division != "")
                 {
-                    string notes = this.format_column(d);
+                    string notes = this.format_column(division);
                     output.Add(notes);
                 }
             }

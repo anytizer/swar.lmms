@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace libraries
 {
     public static class Helpers
     {
-        // eg. D:\songs\song\notations\notations-sargam.txt => song
-        public static string SongTitle(string file_notations_sargam = "")
+        // eg. D:\project-one\notations\notations-sargams.txt => project-one
+        public static string SongTitle(string notations_file = "")
         {
-            DirectoryInfo parent = Directory.GetParent(file_notations_sargam);
+            DirectoryInfo parent = Directory.GetParent(notations_file);
             string title = parent.Name;
 
             /**

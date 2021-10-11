@@ -13,6 +13,7 @@ namespace libraries
         protected int bgcolor;
         protected int forecolor;
     }
+
     public class SemiTone : KeyboardSetup
     {
         SemiTone()
