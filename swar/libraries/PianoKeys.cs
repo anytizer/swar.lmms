@@ -70,5 +70,35 @@ namespace libraries
 
             return pianokey;
         }
+
+        private bool specialKey(string key)
+        {
+            if (key == "-")
+                return true;
+            else
+                return false;
+        }
+
+         // @todo Trims the notations
+        public bool isValidKey(string key)
+        {
+            bool found = false;
+    
+            foreach(PianoKey pk in this.keys)
+            {
+                if(key == pk.name)
+                {
+                    found = true;
+                }
+            }
+
+            if (this.specialKey(key))
+                found = true;
+
+            // slience
+            // continuation
+
+            return found;
+        }
     }
 }

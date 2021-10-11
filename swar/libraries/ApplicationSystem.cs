@@ -9,8 +9,6 @@ namespace libraries
     {
         public string convert(string sargam, Signature signature)
         {
-            // string sargam = textBox1.Text;
-
             Replacer r = new Replacer();
             string scales = r.process(sargam);
 
@@ -20,7 +18,6 @@ namespace libraries
             Readyness rn = new Readyness();
             rn.DeleteXPTs();
             rn.write(scales, xpts);
-
             
             return scales;
         }

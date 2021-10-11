@@ -19,10 +19,10 @@ namespace libraries
             this.colors.Add(new Color() { code = "#C75151", name = "red" });
             this.colors.Add(new Color() { code = "#C7A651", name = "yellow" });
             this.colors.Add(new Color() { code = "#4C72B8", name = "blue" });
-            this.colors.Add(new Color() { code = "#786c50", name = "gold" });
+            this.colors.Add(new Color() { code = "#786C50", name = "gold" });
         }
 
-        public Color getColor()
+        public Color getNextColor()
         {
             if (LastUsedIndex >= this.colors.Count())
             {

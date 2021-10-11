@@ -2,6 +2,7 @@
 
 namespace libraries
 {
+    // make the notations readable and visually aligned
     class Formatter
     {
         public string format_divisions(string line)

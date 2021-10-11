@@ -35,7 +35,7 @@ namespace libraries
                  */
                 List<Cell> notes = this.process(rawnotes);
 
-                string xpt = this.xpt(notes, signature, ++sequence, c.getColor());
+                string xpt = this.xpt(notes, signature, ++sequence, c.getNextColor());
                 xpts.Add(xpt);
             }
 
@@ -44,20 +44,23 @@ namespace libraries
 
         private List<string> getBlocks(string scales)
         {
-            List<string> blocks1 = new List<string>();
-            string[] blocks = scales.Split("#//");
-            foreach (string block in blocks)
+            List<string> blocks = new List<string>();
+            string[] raw_blocks = scales.Split("#//");
+            foreach (string _block in raw_blocks)
             {
+                string block = _block.Trim();
                 if (block != "")
                 {
-                    blocks1.Add(block);
+                    blocks.Add(block);
                 }
             }
-            return blocks1;
+            
+            return blocks;
         }
 
         public List<Cell> getCells(string scales)
         {
+            PianoKeys pk = new PianoKeys();
             List<Cell> notes = new List<Cell>();
 
             int line_number = -1;
@@ -102,7 +105,8 @@ namespace libraries
                                 });
                             }
                         }
-                        else if (column != "")
+                        else if (column!="") // (pk.isValidKey(column))
+                        //else if (pk.isValidKey(column))
                         {
                             notes.Add(new Cell
                             {
@@ -130,8 +134,6 @@ namespace libraries
             PianoKeys pk = new PianoKeys();
 
             int steps = signature.beat_nominator * signature.beat_denominator;
-            
-
 
             string xml = string.Format(@"<?xml version='1.0'?>
 <!DOCTYPE lmms-project>
