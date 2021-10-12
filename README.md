@@ -15,3 +15,11 @@ Every sargam file it reads will be converted into lmms.xpt.
 For more details on LMMS, [visit here](https://lmms.io/).
 
 For more details on XML Handler, [see here](swar/libraries/XMLHandler.cs).
+
+# Software Interface
+![SWAR Interface](interface.png)
+
+Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
+Right: English scales will be auto converted and formatted.
+Also, it will write `lmms-*.xpt` chunk files.
+You can later import these xpt xmls directly in piano roll.
