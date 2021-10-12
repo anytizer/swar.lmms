@@ -46,17 +46,18 @@ namespace swar
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            //comboBox2.SelectedIndex = 0;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            //comboBox2.SelectedIndex = 0;
 
             this.reboot();
         }
 
         private void reboot()
         {
-            comboBox1.Items.Clear();
             Converters c = new Converters();
-            foreach (ComboItem ci in c.getConverters())
+
+            comboBox1.Items.Clear();
+            foreach (ComboItem ci in c.getSourceFormats())
             {
                 comboBox1.Items.Add(new ComboItem()
                 {
@@ -79,11 +80,28 @@ namespace swar
                     ExtraValue = filename,
                 });
             }
+
+            comboBox3.Items.Clear();
+            foreach (ComboItem beat in c.beats())
+            {
+                comboBox3.Items.Add(beat);
+            }
+            
+            comboBox4.Items.Clear();
+            foreach (ComboItem tempo in c.tempos())
+            {
+                comboBox4.Items.Add(tempo);
+            }            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            // convert the notations
+            if (this.comboBox1.SelectedIndex != -1)
+            {
+                ComboItem ci = (ComboItem)this.comboBox1.Items[this.comboBox1.SelectedIndex];
+                MessageBox.Show(ci.Text);
+            }
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,15 +109,11 @@ namespace swar
             if (this.comboBox2.SelectedIndex != -1)
             {
                 ComboItem ci = (ComboItem)this.comboBox2.Items[this.comboBox2.SelectedIndex];
-                textBox1.Text = ci.Value;
+                
+                textBox1.Text = ci.Value; // further!
                 label1.Text = ci.ExtraValue;
                 // @todo Read the lyrics notations once again instead of caches
             }
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            // convert the notations
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -108,8 +122,22 @@ namespace swar
             this.reboot();
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.comboBox3.SelectedIndex != -1)
+            {
+                ComboItem ci = (ComboItem)this.comboBox3.Items[this.comboBox3.SelectedIndex];
+                MessageBox.Show(ci.Text);
+            }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.comboBox4.SelectedIndex != -1)
+            {
+                ComboItem ci = (ComboItem)this.comboBox4.Items[this.comboBox4.SelectedIndex];
+                MessageBox.Show(ci.Text);
+            }
         }
     }
 }

@@ -81,7 +81,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(229, 23);
             this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -107,33 +107,22 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "2/4",
-            "3/4",
-            "4/4",
-            "6/8"});
             this.comboBox3.Location = new System.Drawing.Point(1002, 543);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(69, 23);
             this.comboBox3.TabIndex = 6;
             this.comboBox3.Text = "Beats";
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "72",
-            "80",
-            "90",
-            "123",
-            "140",
-            "210",
-            "280"});
             this.comboBox4.Location = new System.Drawing.Point(1077, 542);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(63, 23);
             this.comboBox4.TabIndex = 7;
             this.comboBox4.Text = "Tempo";
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // label1
             // 
