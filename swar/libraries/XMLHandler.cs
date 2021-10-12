@@ -8,6 +8,8 @@ namespace libraries
 {
     public class XMLHandler
     {
+        private int width = 48;
+
         public XMLHandler()
         {
             // line number
@@ -61,7 +63,7 @@ namespace libraries
         public List<Cell> getCells(string scales)
         {
             PianoKeys pk = new PianoKeys();
-            List<Cell> notes = new List<Cell>();
+            List<Cell> cells = new List<Cell>();
 
             int line_number = -1;
 
@@ -94,7 +96,7 @@ namespace libraries
                             {
                                 ++position_number;
 
-                                notes.Add(new Cell
+                                cells.Add(new Cell
                                 {
                                     line = line_number,
                                     division = division_number,
@@ -108,7 +110,7 @@ namespace libraries
                         else if (column!="") // (pk.isValidKey(column))
                         //else if (pk.isValidKey(column))
                         {
-                            notes.Add(new Cell
+                            cells.Add(new Cell
                             {
                                 line = line_number,
                                 division = division_number,
@@ -126,7 +128,7 @@ namespace libraries
                 }
             }
 
-            return notes;
+            return cells;
         }
 
         private string xpt(List<Cell> notes, Signature signature, int sequence, Color color)
@@ -144,7 +146,7 @@ namespace libraries
             foreach (Cell note in notes)
             {
                 int pianoKey = pk.getPianoKey(note.notation);
-                int lengthval = (int)Math.Ceiling(note.length * 48);
+                int lengthval = (int)Math.Ceiling(note.length * this.width);
                 xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, lengthval, pos, note.notation, note.length);
                 pos = pos + lengthval;
             }
@@ -243,13 +245,15 @@ namespace libraries
                     else
                     {
                         // cannot start with a -
+                        // @todo However, can start with x
                     }
                 }
                 else if (cell.notation == "x")
                 {
-                    // add a blank note
+                    // insert a blank note
                     // increase the position
                     // can! start with x
+                    // processed.Last().position += this.width;
                 }
                 else
                 {

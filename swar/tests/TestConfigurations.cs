@@ -1,6 +1,4 @@
 using configs;
-using dtos;
-using libraries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 
@@ -24,16 +22,17 @@ namespace tests
         [TestMethod]
         public void TestCanWriteToConfigurationDirectory()
         {
+            // @todo can read write
             Assert.IsTrue(Directory.Exists(Configurations.ReadWriteDirectory));
         }
 
         [TestMethod]
         public void TestCountSubdirectories()
         {
-            string[] di = Directory.GetDirectories(Configurations.ReadWriteDirectory);
-            // parser
+            string[] dirs = Directory.GetDirectories(Configurations.ReadWriteDirectory);
+            // parsers
             // .git
-            Assert.IsTrue(di.Length == 2);
+            Assert.IsTrue(dirs.Length == 2);
         }
     }
 }
