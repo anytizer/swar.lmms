@@ -24,9 +24,12 @@ Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
 Right: English scales will be auto converted and formatted.
 
 Also, it will write `lmms-*.xpt` chunk files.
-You can later import these xpt xmls directly in piano roll.
+You can later import these xpt xmls directly in the piano roll.
 
 Bottom Left: Proposed source format chooser.
+
 Bottom Right: sargams.txt contents.
+
 Beats: Proposed pupular Time Signatures.
+
 Tempo: Proposed pupular tempos.

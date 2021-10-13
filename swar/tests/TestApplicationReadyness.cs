@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace tests
 {
-    class TestApplicationReadyness
+    public class TestApplicationReadyness
     {
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace tests
             Signature signature = new Signature(3, 4, 280);
 
             string scales = s.convert(sargams, signature);
-            Assert.AreEqual("1: C", scales.Trim()); // line numbers are prepended
+            Assert.AreEqual("1: C", scales.Trim());
         }
     }
 }

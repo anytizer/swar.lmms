@@ -4,9 +4,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace tests
 {
     [TestClass]
-    class TestHelpers
+    public class TestHelpers
     {
-
         [TestMethod]
         public void HelperConvertsTitleFromSargamNotations()
         {
@@ -19,7 +18,7 @@ namespace tests
         [TestMethod]
         public void HelperConvertsTitleFromEnglishNotations()
         {
-            string fullpath = "d:/projects/title1/notations-english.txt";
+            string fullpath = "d:/projects/title-1/notations-english.txt";
             string title = Helpers.SongTitle(fullpath);
 
             Assert.IsTrue(title == "title1");

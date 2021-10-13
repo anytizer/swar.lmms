@@ -25,7 +25,7 @@ namespace libraries
             List<string> xpts = new List<string>();
 
             List<string> blocks = this.getBlocks(scales); // #//
-            ColorsRotator c = new ColorsRotator();
+            ColorsRotator cr = new ColorsRotator();
             int sequence = 0;
             foreach (string block in blocks)
             {
@@ -37,7 +37,7 @@ namespace libraries
                  */
                 List<Cell> notes = this.process(rawnotes);
 
-                string xpt = this.xpt(notes, signature, ++sequence, c.getNextColor());
+                string xpt = this.xpt(notes, signature, ++sequence, cr.getNextColor());
                 xpts.Add(xpt);
             }
 

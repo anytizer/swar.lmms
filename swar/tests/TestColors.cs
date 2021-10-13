@@ -1,8 +1,6 @@
-using configs;
 using dtos;
 using libraries;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 
 namespace tests
 {
@@ -25,11 +23,11 @@ namespace tests
 
             Assert.AreEqual("green", first.name);
             Assert.AreEqual("pink", second.name);
-            Assert.AreEqual("red", third.name);
+            Assert.AreEqual("blue", third.name);
             Assert.AreEqual("yellow", fourth.name);
-            Assert.AreEqual("blue", fifth.name);
-            Assert.AreEqual("gold", sixth.name);
-
+            Assert.AreEqual("gold", fifth.name);
+            Assert.AreEqual("red", sixth.name);
+            
             // repeat!
             Assert.AreEqual("green", seventh.name);
         }

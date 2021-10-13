@@ -30,8 +30,8 @@ namespace tests
         public void TestCountSubdirectories()
         {
             string[] dirs = Directory.GetDirectories(Configurations.ReadWriteDirectory);
-            // parsers
             // .git
+            // parsers
             Assert.IsTrue(dirs.Length == 2);
         }
     }

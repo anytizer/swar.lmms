@@ -12,21 +12,21 @@ namespace libraries
 
             ci.Add(new ComboItem()
             {
-                Text = "Single Character Representation",
+                Text = "Single Character SARGAM Representation",
                 Value = "1",
                 ExtraValue = "",
             });
 
             ci.Add(new ComboItem()
             {
-                Text = "Proper Sargam Representation",
+                Text = "Proper SARGAM Representation",
                 Value = "2",
                 ExtraValue = "",
             });
 
             ci.Add(new ComboItem()
             {
-                Text = "Pre-Converted Scales",
+                Text = "Pre-Converted/English Scales",
                 Value = "3",
                 ExtraValue = "",
             });

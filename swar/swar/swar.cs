@@ -11,8 +11,8 @@ namespace swar
 {
     public partial class swar : Form
     {
-        ApplicationSystem s;
-        Signature signature;
+        private ApplicationSystem s;
+        private Signature signature;
 
         public swar()
         {
@@ -86,12 +86,14 @@ namespace swar
             {
                 comboBox3.Items.Add(beat);
             }
-            
+            comboBox3.SelectedIndex = 0;
+
             comboBox4.Items.Clear();
             foreach (ComboItem tempo in c.tempos())
             {
                 comboBox4.Items.Add(tempo);
-            }            
+            }
+            comboBox4.SelectedIndex = 0;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,7 +111,7 @@ namespace swar
             if (this.comboBox2.SelectedIndex != -1)
             {
                 ComboItem ci = (ComboItem)this.comboBox2.Items[this.comboBox2.SelectedIndex];
-                
+
                 textBox1.Text = ci.Value; // further!
                 label1.Text = ci.ExtraValue;
                 // @todo Read the lyrics notations once again instead of caches
@@ -127,7 +129,8 @@ namespace swar
             if (this.comboBox3.SelectedIndex != -1)
             {
                 ComboItem ci = (ComboItem)this.comboBox3.Items[this.comboBox3.SelectedIndex];
-                MessageBox.Show(ci.Text);
+                //MessageBox.Show(ci.Text);
+                this.updateSignature();
             }
         }
 
@@ -136,8 +139,24 @@ namespace swar
             if (this.comboBox4.SelectedIndex != -1)
             {
                 ComboItem ci = (ComboItem)this.comboBox4.Items[this.comboBox4.SelectedIndex];
-                MessageBox.Show(ci.Text);
+                //MessageBox.Show(ci.Text);
+                this.updateSignature();
             }
+        }
+
+        private void updateSignature()
+        {
+            // @todo Handle update signature
+            return;
+
+            // ComboItem _beat = (ComboItem)this.comboBox3.Items[this.comboBox3.SelectedIndex];
+            // ComboItem _tempo = (ComboItem)this.comboBox4.Items[this.comboBox4.SelectedIndex];
+            // 
+            // int nominator = Helpers.ParseNominator(_beat.Value);
+            // int demoninator = Helpers.ParseDenominator(_beat.Value);
+            // int tempo = Helpers.ParseTempo(_tempo.Value);
+            // 
+            // this.signature = new Signature(nominator, demoninator, tempo);
         }
     }
 }
