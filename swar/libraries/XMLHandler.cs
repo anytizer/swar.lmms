@@ -143,12 +143,19 @@ namespace libraries
   <head/>
   <pattern steps='{2}' muted='0' name='{3}' color='{4}' type='1' pos='0'>", Configurations.version, Configurations.name, steps, sequence, color.code);
             int pos = 0;
-            foreach (Cell note in notes)
+            foreach (Cell cell in notes)
             {
-                int pianoKey = pk.getPianoKey(note.notation);
-                int lengthval = (int)Math.Ceiling(note.length * this.width);
-                xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, lengthval, pos, note.notation, note.length);
-                pos = pos + lengthval;
+                if(cell.notation == "x")
+                {
+                    pos = pos + this.width;
+                }
+                else
+                {
+                    int pianoKey = pk.getPianoKey(cell.notation);
+                    int lengthval = (int)Math.Ceiling(cell.length * this.width);
+                    xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, lengthval, pos, cell.notation, cell.length);
+                    pos = pos + lengthval;
+                }
             }
 
             xml += @"
@@ -250,10 +257,13 @@ namespace libraries
                 }
                 else if (cell.notation == "x")
                 {
+                    // @todo Help wanted
                     // insert a blank note
                     // increase the position
                     // can! start with x
                     // processed.Last().position += this.width;
+                    // new note's position will be this position + width
+                    // handled later
                 }
                 else
                 {

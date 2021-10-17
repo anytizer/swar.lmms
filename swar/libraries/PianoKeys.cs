@@ -1,4 +1,5 @@
-﻿using dtos;
+﻿using configs;
+using dtos;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,29 +12,31 @@ namespace libraries
         public PianoKeys()
         {
             this.keys = new List<PianoKey>(); // to reset
+            Syllables solfege = new Syllables().translate(Scales.EnglishScale);
 
-            this.fill();
+            this.fill(solfege);
         }
 
-        private void fill()
+        private void fill(Syllables solfege)
         {
-            this.register("C", 0);
-            this.register("C#", 1);
-            this.register("D", 2);
-            this.register("D#", 3);
-            this.register("E", 4);
-            this.register("F", 5);
-            this.register("F#", 6);
-            this.register("G", 7);
-            this.register("G#", 8);
-            this.register("A", 9);
-            this.register("A#", 10);
-            this.register("B", 11);
+            this.register("C", 0, solfege.C);
+            this.register("C#", 1, solfege.CSharp);
+            this.register("D", 2, solfege.D);
+            this.register("D#", 3, solfege.DSharp);
+            this.register("E", 4, solfege.E);
+            this.register("F", 5, solfege.F);
+            this.register("F#", 6, solfege.FSharp);
+            this.register("G", 7, solfege.G);
+            this.register("G#", 8, solfege.GSharp);
+            this.register("A", 9, solfege.A);
+            this.register("A#", 10, solfege.ASharp);
+            this.register("B", 11, solfege.B);
         }
 
-        internal void register(string name, int key)
+        internal void register(string name, int key, string translation)
         {
-            keys.Add(new PianoKey() { name = name, key = key});
+            keys.Add(new PianoKey() { name = translation != "" ? translation : name, key = key });
+            // keys.Add(new PianoKey() { name = translation, key = key });
         }
 
         internal int search(string name)

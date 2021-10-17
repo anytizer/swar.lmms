@@ -38,6 +38,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.keyboardUserControl1 = new KeyboardUserControl();
             this.SuspendLayout();
             // 
             // textBox1
@@ -133,11 +134,20 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Please choose a Sargam Fle";
             // 
+            // keyboardUserControl1
+            // 
+            this.keyboardUserControl1.Location = new System.Drawing.Point(14, 608);
+            this.keyboardUserControl1.Name = "keyboardUserControl1";
+            this.keyboardUserControl1.Size = new System.Drawing.Size(1128, 104);
+            this.keyboardUserControl1.TabIndex = 9;
+            this.keyboardUserControl1.Load += new System.EventHandler(this.keyboardUserControl1_Load);
+            // 
             // swar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 592);
+            this.ClientSize = new System.Drawing.Size(1154, 724);
+            this.Controls.Add(this.keyboardUserControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.comboBox3);
@@ -171,6 +181,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label1;
+        private KeyboardUserControl keyboardUserControl1;
     }
 }
 

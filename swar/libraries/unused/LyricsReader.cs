@@ -51,11 +51,14 @@ namespace libraries
             Signature s2 = new Signature(3, 4, 140);
             Signature s3 = new Signature(2, 4, 280);
             Signature s4 = new Signature(3, 4, 280); // popular teej melody
-            Signature s5 = new Signature(6, 8, 280);
+            Signature s5 = new Signature(4, 4, 140);
+            Signature s6 = new Signature(4, 4, 280);
+            Signature s7 = new Signature(6, 8, 280);
 
             List<string> sargams = Configurations.sargams();
             foreach(string sargam in sargams)
             {
+                // @todo Select time signature from sargam file name itself
                 this.read(sargam, s4);
             }           
         }

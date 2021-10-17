@@ -1,10 +1,6 @@
-﻿using configs;
-using dtos;
+﻿using dtos;
 using libraries;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace swar
@@ -147,6 +143,7 @@ namespace swar
         private void updateSignature()
         {
             // @todo Handle update signature
+            // responsive pattern
             return;
 
             // ComboItem _beat = (ComboItem)this.comboBox3.Items[this.comboBox3.SelectedIndex];
@@ -157,6 +154,62 @@ namespace swar
             // int tempo = Helpers.ParseTempo(_tempo.Value);
             // 
             // this.signature = new Signature(nominator, demoninator, tempo);
+        }
+
+        private void keyboardUserControl1_Load(object sender, EventArgs e)
+        {
+            keyboardUserControl1.process();
+            foreach (Button b in keyboardUserControl1.keys())
+            {
+                b.Click += new EventHandler(this._keyClick);
+            }
+
+            // keyboardUserControl1.addSpecialKeys();
+            foreach (Button b in keyboardUserControl1.special_keys())
+            {
+                b.Click += new EventHandler(this._SpecialKeyClick);
+            }
+        }
+
+        private void _keyClick(object sender, EventArgs e)
+        {
+            Button s = sender as Button;
+            // MessageBox.Show("Child reading: "+sender.ToString());
+            this.textBox1.Text += " " + s.Text;
+        }
+
+        private void _SpecialKeyClick(object sender, EventArgs e)
+        {
+            string add = "";
+            Button s = sender as Button;
+            switch(s.Text)
+            {
+                case "#//":
+                    add = "\r\n\r\n#//\r\n\r\n";
+                    break;
+                case ",":
+                    add = s.Text;
+                    break;
+                case "|":
+                    add = " | ";
+                    break;
+                case "x":
+                    add = " x ";
+                    break;
+                case "-":
+                    add = " - ";
+                    break;
+                case "NL":
+                    add = "\r\n\r\n";
+                    break;
+                case "DEL":
+                    add = "";
+                    break;
+                default:
+                    break;
+            }
+
+            this.textBox1.Text += add;
         }
     }
 }
