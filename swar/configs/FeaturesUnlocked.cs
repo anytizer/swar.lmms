@@ -9,7 +9,7 @@
         public const int DEMO = 0;
 
         /**
-         * Features limited
+         * Limited features
          * Do not save files
          * Do not produce XPT files
          */
@@ -17,6 +17,7 @@
         
         /**
          * Unlocked everything
+         * Available after purchase proof
          */
         public const int PREMIUM = 100;
     }

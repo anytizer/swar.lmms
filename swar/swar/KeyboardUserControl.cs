@@ -57,8 +57,8 @@ namespace swar
                 b.Size = new Size(key.tonality.width, key.tonality.width);
                 b.Location = new Point(x, y);
 
-                b.ForeColor = ColorTranslator.FromHtml(key.tonality.forecolor);
-                b.BackColor = ColorTranslator.FromHtml(key.tonality.bgcolor);
+                b.ForeColor = ColorTranslator.FromHtml(key.tonality.forecolor.code);
+                b.BackColor = ColorTranslator.FromHtml(key.tonality.bgcolor.code);
 
                 this.Controls.Add(b);
                 this.keyboard.Add(b);

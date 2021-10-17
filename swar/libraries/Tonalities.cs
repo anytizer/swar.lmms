@@ -9,8 +9,8 @@ namespace libraries
             this.height = 90;
             this.width = 40;
 
-            this.bgcolor = "#999999";
-            this.forecolor = "#FFFFFF";
+            this.bgcolor = new Coloring { code = "#999999", name = "gray" };
+            this.forecolor = new Coloring { code = "#FFFFFF", name = "White" };
         }
     }
 
@@ -21,8 +21,8 @@ namespace libraries
             this.height = 120;
             this.width = 60;
 
-            this.bgcolor = "#FFFFFF";
-            this.forecolor = "#000000";
+            this.bgcolor = new Coloring { code = "#FFFFFF", name = "White" };
+            this.forecolor = new Coloring { code = "#000000", name = "black" };
         }
     }
 }

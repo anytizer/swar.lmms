@@ -13,7 +13,7 @@ namespace tests
             Permissions acl = new Permissions();
             acl.SetACLMode(FeaturesUnlocked.PREMIUM);
             
-            bool authority = acl.HasAuthority(PermissionsList.SAVE_XPT);
+            bool authority = acl.HasAuthority(PermissionsList.SAVE_XPTS);
 
             Assert.IsTrue(authority);
         }
@@ -24,7 +24,7 @@ namespace tests
             Permissions acl = new Permissions();
             acl.SetACLMode(FeaturesUnlocked.DEMO);
 
-            bool authority = acl.HasAuthority(PermissionsList.SAVE_XPT);
+            bool authority = acl.HasAuthority(PermissionsList.SAVE_XPTS);
 
             Assert.IsFalse(authority);
         }

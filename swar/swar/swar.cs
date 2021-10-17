@@ -56,7 +56,7 @@ namespace swar
             this.acl = new Permissions();
             this.acl.SetACLMode(FeaturesUnlocked.PREMIUM); // @todo Read from license
 
-            bool authority_xpt = acl.HasAuthority(PermissionsList.SAVE_XPT);
+            bool authority_xpt = acl.HasAuthority(PermissionsList.SAVE_XPTS);
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 

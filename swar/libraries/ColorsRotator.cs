@@ -13,13 +13,15 @@ namespace libraries
         {
             this.LastUsedIndex = 0;
 
-            this.colors = new List<Coloring>();
-            this.colors.Add(new Coloring() { code = "#58D46F", name = "green" });
-            this.colors.Add(new Coloring() { code = "#FF58C6", name = "pink" });
-            this.colors.Add(new Coloring() { code = "#4C72B8", name = "blue" });
-            this.colors.Add(new Coloring() { code = "#C7A651", name = "yellow" });
-            this.colors.Add(new Coloring() { code = "#786C50", name = "gold" });
-            this.colors.Add(new Coloring() { code = "#C75151", name = "red" });
+            this.colors = new List<Coloring>
+            {
+                new Coloring() { code = "#58D46F", name = "green" },
+                new Coloring() { code = "#FF58C6", name = "pink" },
+                new Coloring() { code = "#4C72B8", name = "blue" },
+                new Coloring() { code = "#C7A651", name = "yellow" },
+                new Coloring() { code = "#786C50", name = "gold" },
+                new Coloring() { code = "#C75151", name = "red" }
+            };
         }
 
         public Coloring getNextColor()

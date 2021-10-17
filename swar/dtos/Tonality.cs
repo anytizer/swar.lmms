@@ -4,7 +4,7 @@
     {
         public int height { get; set; }
         public int width { get; set; }
-        public string bgcolor { get; set; }
-        public string forecolor { get; set; }
+        public Coloring bgcolor { get; set; }
+        public Coloring forecolor { get; set; }
     }
 }

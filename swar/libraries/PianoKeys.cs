@@ -36,7 +36,6 @@ namespace libraries
         internal void register(string name, int key, string translation)
         {
             keys.Add(new PianoKey() { name = translation != "" ? translation : name, key = key });
-            // keys.Add(new PianoKey() { name = translation, key = key });
         }
 
         internal int search(string name)

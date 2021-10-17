@@ -17,11 +17,6 @@ namespace libraries
             SemiTone semi = new SemiTone();
             PureTone pure = new PureTone();
 
-            // string bg_dark = "#999999";
-            // string bg_light = "#FFFFFF";
-            // string fg_dark = "#000000";
-            // string fg_light = "#FFFFFF";
-
             // Reference: https://pages.mtu.edu/~suits/notefreqs.html
             this.tones = new List<Tone>();
             tones.Add(new Tone() { frequency = "261.63", wavelength = "131.87", name = solfege.C, tonality = pure });

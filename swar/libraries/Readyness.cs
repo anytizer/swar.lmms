@@ -6,28 +6,32 @@ namespace libraries
 {
     public class Readyness
     {
-        string path;
+        private string path;
+        private string SargamsNotationsFile;
+        private string EnglishNotationsFile;
 
         public Readyness()
         {
             this.path = Configurations.ReadWriteDirectory;
+            this.SargamsNotationsFile = "notations-sargams.txt";
+            this.EnglishNotationsFile = "notations-english.txt";
         }
 
         public bool DeleteEnglishNotations()
         {
-            if(File.Exists(path + "/notations-english.txt"))
+            if (File.Exists(path + "/" + EnglishNotationsFile))
             {
-                File.Delete(path + "/notations-english.txt");
+                File.Delete(path + "/" + EnglishNotationsFile);
             }
-            
-            return DeleteEnglishNotations();
+
+            return EnglishNotationsExist();
         }
 
         public bool DeleteSargamsNotations()
         {
-            if (File.Exists(path + "/notations-sargams.txt"))
+            if (File.Exists(path + "/" + SargamsNotationsFile))
             {
-                File.Delete(path + "/notations-sargams.txt");
+                File.Delete(path + "/" + SargamsNotationsFile);
             }
 
             return SargamsNotationsExist();
@@ -43,12 +47,11 @@ namespace libraries
                 File.WriteAllText(string.Format("{0}/lmms-{1,2}.xpt", path, sequence.ToString("00")), xpt);
             }
 
-            File.WriteAllText(string.Format("{0}/notations-english.txt", path), scales);
+            File.WriteAllText(string.Format("{0}/{1}", path, EnglishNotationsFile), scales);
         }
 
         public bool DeleteXPTs()
         {
-            
             string[] XPTs = new[] {
                 path + "/lmms-00.xpt",
                 path + "/lmms-01.xpt",
@@ -60,27 +63,28 @@ namespace libraries
                 path + "/lmms-07.xpt",
                 path + "/lmms-08.xpt",
                 path + "/lmms-09.xpt",
+                path + "/lmms-10.xpt",
             };
 
-            foreach(string xptfile in XPTs)
+            foreach (string xptfile in XPTs)
             {
                 if (File.Exists(xptfile))
                 {
                     File.Delete(xptfile);
                 }
             }
-            
+
             return false;
         }
 
         public bool SargamsNotationsExist()
         {
-            return File.Exists(path + "/notations-sargams.txt");
+            return File.Exists(path + "/" + SargamsNotationsFile);
         }
 
         public bool EnglishNotationsExist()
         {
-            return File.Exists(path + "/notations-english.txt");
+            return File.Exists(path + "/" + EnglishNotationsFile);
         }
     }
 }
