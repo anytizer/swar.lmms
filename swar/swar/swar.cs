@@ -27,13 +27,23 @@ namespace swar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.convert2scales();
+            string from = "";
+            string to = "";
+            this.convert2scales(from, to);
         }
 
-        private void convert2scales()
+        private void convert2scales(string from, string to)
         {
-            ApplicationSystem s = new ApplicationSystem();
-            textBox2.Text = s.convert(textBox1.Text, signature);
+            bool authority = acl.HasAuthority(PermissionsList.CONVERT_SCALES);
+            if (authority)
+            {
+                ApplicationSystem s = new ApplicationSystem();
+                textBox2.Text = s.convert(textBox1.Text, signature);
+            }
+            else
+            {
+                MessageBox.Show("No authority!");
+            }
         }
 
         internal void permissions(Permissions acl)
@@ -43,7 +53,9 @@ namespace swar
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            this.convert2scales();
+            string from = "";
+            string to = "";
+            this.convert2scales(from, to);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

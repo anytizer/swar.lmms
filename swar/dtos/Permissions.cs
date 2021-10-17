@@ -21,6 +21,7 @@ namespace dtos
             // for each permission defined in the constants
             acl.Add(new Permission() { name = PermissionsList.SAVE_XPTS, authority = false, message = "Unable to produce XPT Pattern file." });
             acl.Add(new Permission() { name = PermissionsList.SAVE_SCALE, authority = false, message = "Unable to save scale file." });
+            acl.Add(new Permission() { name = PermissionsList.CONVERT_SCALES, authority = false, message = "Unable to convert scales." });
         }
 
         public void DisableAllPermissions()
@@ -36,16 +37,25 @@ namespace dtos
             switch (mode)
             {
                 case FeaturesUnlocked.DEMO:
+                    this.DisableAllPermissions();
                     this.Disallow(PermissionsList.SAVE_XPTS);
                     this.Disallow(PermissionsList.SAVE_SCALE);
+                    this.Disallow(PermissionsList.CONVERT_SCALES);
                     break;
                 case FeaturesUnlocked.FREE:
                     this.Allow(PermissionsList.SAVE_XPTS);
                     this.Allow(PermissionsList.SAVE_SCALE);
+                    this.Allow(PermissionsList.CONVERT_SCALES);
                     break;
                 case FeaturesUnlocked.PREMIUM:
-                    this.Allow(PermissionsList.SAVE_XPTS);
-                    this.Allow(PermissionsList.SAVE_SCALE);
+                    // enable all permissions
+                    foreach (Permission p in this.acl)
+                    {
+                        p.authority = true;
+                    }
+                    break;
+                default:
+                    this.DisableAllPermissions();
                     break;
             }
         }

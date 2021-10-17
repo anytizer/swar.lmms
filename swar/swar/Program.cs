@@ -1,5 +1,6 @@
 using configs;
 using dtos;
+using libraries;
 using System;
 using System.Windows.Forms;
 
@@ -17,8 +18,11 @@ namespace swar
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            License license = new License();
+            int mode = license.mode(); // FeaturesUnlocked.PREMIUM
+
             Permissions acl = new Permissions();
-            acl.SetACLMode(FeaturesUnlocked.PREMIUM);
+            acl.SetACLMode(mode);
             swar converter = new swar();
             converter.permissions(acl);
 
