@@ -18,6 +18,6 @@
         /**
          * Unlocked everything
          */
-        public const int PREMIUM = 100; // purchased full version
+        public const int PREMIUM = 100;
     }
 }

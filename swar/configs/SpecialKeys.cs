@@ -3,9 +3,9 @@
     public static class SpecialKeys
     {
         public const string BLOCK_SEPARATOR = "#//";
-        public const string COMMA = ",";
-        public const string PIPE = "|";
         public const string DIVISION_SEPARATOR_FORMATTER = " | ";
+        public const string PIPE = "|";
+        public const string COMMA = ",";
         public const string SILENCE = "x";
         public const string CONTINUATION = "-";
         public const string NEWLINE = "NL";

@@ -38,5 +38,16 @@ namespace tests
 
             Assert.AreEqual(48, C3);
         }
+
+        [TestMethod]
+        public void TestKeyCMinusOne()
+        {
+            string key = "C....."; // C-1
+
+            PianoKeys pk = new PianoKeys();
+            int CMinusOne = pk.getPianoKey(key);
+
+            Assert.AreEqual(0, CMinusOne);
+        }
     }
 }

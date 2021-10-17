@@ -17,6 +17,12 @@ namespace swar
             InitializeComponent();
             this.s = new ApplicationSystem();
             this.signature = new Signature(3, 4, 280);
+
+            /**
+             * Will be overwritten externally.
+             */
+            this.acl = new Permissions();
+            acl.SetACLMode(FeaturesUnlocked.FREE);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,6 +34,11 @@ namespace swar
         {
             ApplicationSystem s = new ApplicationSystem();
             textBox2.Text = s.convert(textBox1.Text, signature);
+        }
+
+        internal void permissions(Permissions acl)
+        {
+            this.acl = acl;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -45,7 +56,7 @@ namespace swar
             this.acl = new Permissions();
             this.acl.SetACLMode(FeaturesUnlocked.PREMIUM); // @todo Read from license
 
-            bool authority_xpt = acl.HasAuthority(PermissionsList.PRODUCE_XPT);
+            bool authority_xpt = acl.HasAuthority(PermissionsList.SAVE_XPT);
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 

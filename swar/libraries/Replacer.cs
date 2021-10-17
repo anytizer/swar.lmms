@@ -1,4 +1,5 @@
-﻿using libraries;
+﻿using configs;
+using libraries;
 using System.Collections.Generic;
 
 namespace dtos
@@ -12,16 +13,16 @@ namespace dtos
             lr = new List<Replacement>();
 
             // oddities
-            lr.Add(new Replacement() { find = "º", replace = "*" });
-            lr.Add(new Replacement() { find = "™", replace = "#" });
+            lr.Add(new Replacement() { find = "º", replace = SpecialKeys.HIGHER_OCTAVE });
+            lr.Add(new Replacement() { find = "™", replace = SpecialKeys.HASH });
 
             // common symbols
-            lr.Add(new Replacement() { find = "°", replace = "*" });
-            lr.Add(new Replacement() { find = "`", replace = "#" }); // sharp/flat
-            lr.Add(new Replacement() { find = "'", replace = "#" }); // sharp/flat
-            lr.Add(new Replacement() { find = "_", replace = "-" });
-            lr.Add(new Replacement() { find = "~", replace = "-" });
-            lr.Add(new Replacement() { find = "/", replace = "|" });
+            lr.Add(new Replacement() { find = "°", replace = SpecialKeys.HIGHER_OCTAVE });
+            lr.Add(new Replacement() { find = "`", replace = SpecialKeys.HASH }); // sharp/flat
+            lr.Add(new Replacement() { find = "'", replace = SpecialKeys.HASH }); // sharp/flat
+            lr.Add(new Replacement() { find = "_", replace = SpecialKeys.CONTINUATION });
+            lr.Add(new Replacement() { find = "~", replace = SpecialKeys.CONTINUATION });
+            lr.Add(new Replacement() { find = "/", replace = SpecialKeys.PIPE });
 
             // to sargam - single letter
             lr.Add(new Replacement() { find = "a", replace = "" });

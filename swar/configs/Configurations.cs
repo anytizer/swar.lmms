@@ -6,11 +6,11 @@ namespace configs
 {
     public static class Configurations
     {
-        public static string name = "SWAR";
-        public static string version = "0.0.1";
+        public const string name = "SWAR";
+        public const string version = "0.0.1";
 
         // Directory MUST exist
-        public static string ReadWriteDirectory = "d:/desktop/xpt";
+        public const string ReadWriteDirectory = "d:/desktop/xpt";
 
         public static List<string> sargams()
         {

@@ -1,3 +1,5 @@
+using configs;
+using dtos;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +16,13 @@ namespace swar
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new swar());
+
+            Permissions acl = new Permissions();
+            acl.SetACLMode(FeaturesUnlocked.PREMIUM);
+            swar converter = new swar();
+            converter.permissions(acl);
+
+            Application.Run(converter);
         }
     }
 }

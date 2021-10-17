@@ -1,4 +1,5 @@
-﻿using dtos;
+﻿using configs;
+using dtos;
 using libraries;
 using System;
 using System.Collections.Generic;
@@ -34,13 +35,13 @@ namespace swar
 
         public void process()
         {
-            this.addPianoKeyboard();
-            this.addSpecialKeys();
+            this.AddPianoKeyboard();
+            this.AddSpecialKeys();
         }
 
-        private void addPianoKeyboard()
+        private void AddPianoKeyboard()
         {
-            nl.LoadNotes();
+            nl.LoadNotes(Scales.Sargam);
 
             this.Controls.Clear();
             this.keyboard.Clear();
@@ -56,8 +57,8 @@ namespace swar
                 b.Size = new Size(key.tonality.width, key.tonality.width);
                 b.Location = new Point(x, y);
 
-                b.ForeColor = ColorTranslator.FromHtml(key.color);
-                b.BackColor = ColorTranslator.FromHtml(key.bgcolor);
+                b.ForeColor = ColorTranslator.FromHtml(key.tonality.forecolor);
+                b.BackColor = ColorTranslator.FromHtml(key.tonality.bgcolor);
 
                 this.Controls.Add(b);
                 this.keyboard.Add(b);
@@ -66,18 +67,18 @@ namespace swar
             }
         }
 
-        private void addSpecialKeys()
+        private void AddSpecialKeys()
         {
             List<KeyHandler> special_keys = new List<KeyHandler>();
-            special_keys.Add(new KeyHandler() { key = "#//", tooltip = "Block" });
-            special_keys.Add(new KeyHandler() { key = "|", tooltip = "Division" });
-            special_keys.Add(new KeyHandler() { key = ",", tooltip = "Khitka" });
-            special_keys.Add(new KeyHandler() { key = "-", tooltip = "Continuation" });
-            special_keys.Add(new KeyHandler() { key = "x", tooltip = "Silence" });
-            special_keys.Add(new KeyHandler() { key = "NL", tooltip = "New Line" });
-            special_keys.Add(new KeyHandler() { key = "DEL", tooltip = "Delete" });
-            special_keys.Add(new KeyHandler() { key = ".", tooltip = "Lower Octave" });
-            special_keys.Add(new KeyHandler() { key = "*", tooltip = "Higher Octave" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.BLOCK_SEPARATOR, tooltip = "Block" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.PIPE, tooltip = "Division" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.COMMA, tooltip = "Khitka" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.CONTINUATION, tooltip = "Continuation" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.SILENCE, tooltip = "Silence" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.NEWLINE, tooltip = "New Line" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.DELETE, tooltip = "Delete" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.LOWER_OCTAVE, tooltip = "Lower Octave" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.HIGHER_OCTAVE, tooltip = "Higher Octave" });
 
             int x = 650;
             int y = 0;
