@@ -1,14 +1,17 @@
 # swar
 Convert SARGAM Notes to English Scales and XPT Pattern Files.
 
+This is a temporary solution for Custom Piano Labels using a reverse method, for LMMS.
+Here is the [discsussion thread](https://github.com/LMMS/lmms/issues/6162).
+
 ## Configurations
 
 ### Read/Write Directory
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
-Create a Windows directory "d:/desktop/xpt". Your swar executable files can be any where.
+Create a Windows directory `d:/desktop/xpt`. Your swar executable files can be anywhere.
 
 ### license.txt
-Put "100" without quotes to d:/desktop/license.txt file for features unblocked to premium.
+Put "100" without quotes to `d:/desktop/license.txt` file for features unblocked to premium.
 
 ### Sargams: File List
 Create d:/desktop/xpt/sargams.txt file with a full path to a sargam note.
@@ -30,9 +33,8 @@ For more details on LMMS, [visit here](https://lmms.io/).
 # Software Interface
 ![SWAR Interface](interface.png)
 
-Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
-
-Right: English scales will be auto converted and formatted.
+* Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
+* Right: English scales will be auto converted and formatted.
 
 Also, it will write `lmms-*.xpt` chunk files.
 You can later import these xpt xmls directly in the piano roll.
@@ -43,4 +45,5 @@ You can later import these xpt xmls directly in the piano roll.
 * Tempo: Proposed pupular tempos.
 * Piano Keyboard: Clicking here will added a corresponding sargam note.
 * Special keys: This will also enter the contents in the sargam editor.
-* This is a work in progress, and any content, documentation, source code, compiled binaries, etc. are subject to change.
+
+This is a work in progress, and any content, documentation, source code, compiled binaries, etc. are subject to change.
