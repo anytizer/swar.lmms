@@ -47,7 +47,7 @@ namespace libraries
         private List<string> getBlocks(string scales)
         {
             List<string> blocks = new List<string>();
-            string[] raw_blocks = scales.Split("#//");
+            string[] raw_blocks = scales.Split(SpecialKeys.BLOCK_SEPARATOR);
             foreach (string _block in raw_blocks)
             {
                 string block = _block.Trim();
@@ -56,7 +56,7 @@ namespace libraries
                     blocks.Add(block);
                 }
             }
-            
+
             return blocks;
         }
 
@@ -87,9 +87,9 @@ namespace libraries
 
                         int position_number = -1;
 
-                        if (column.Contains(","))
+                        if (column.Contains(SpecialKeys.COMMA))
                         {
-                            int elements = column.Count(s => s == ',') + 1; 
+                            int elements = column.Count(s => s == ',') + 1;
                             float semilength = 1.0f / elements; // @todo Avoid division by zero
                             List<string> notations = this.getNotations(column);
                             foreach (string seminote in notations)
@@ -107,7 +107,7 @@ namespace libraries
                                 });
                             }
                         }
-                        else if (column!="") // (pk.isValidKey(column))
+                        else if (column != "") // (pk.isValidKey(column))
                         //else if (pk.isValidKey(column))
                         {
                             cells.Add(new Cell
@@ -131,7 +131,7 @@ namespace libraries
             return cells;
         }
 
-        private string xpt(List<Cell> notes, Signature signature, int sequence, Color color)
+        private string xpt(List<Cell> notes, Signature signature, int sequence, Coloring color)
         {
             PianoKeys pk = new PianoKeys();
 
@@ -145,7 +145,7 @@ namespace libraries
             int pos = 0;
             foreach (Cell cell in notes)
             {
-                if(cell.notation == "x")
+                if (cell.notation == SpecialKeys.SILENCE)
                 {
                     pos = pos + this.width;
                 }
@@ -173,7 +173,7 @@ namespace libraries
             foreach (string _line in scales.Split(new char[] { '\r', '\n' }))
             {
                 string line = _line.Trim();
-                if (line == "" || line.StartsWith("#") || line.StartsWith("x"))
+                if (line == "" || line.StartsWith(SpecialKeys.HASH) || line.StartsWith(SpecialKeys.SILENCE))
                     continue;
 
                 lines.Add(line);
@@ -186,9 +186,9 @@ namespace libraries
         {
             string rowline;
             List<string> divisions = new List<string>();
-            if (line.Contains(":"))
+            if (line.Contains(SpecialKeys.COLON))
             {
-                string[] raws = line.Split(":");
+                string[] raws = line.Split(SpecialKeys.COLON);
                 rowline = raws[1];
             }
             else
@@ -196,10 +196,10 @@ namespace libraries
                 rowline = line;
             }
 
-            foreach (string _division in rowline.Split('|'))
+            foreach (string _division in rowline.Split(SpecialKeys.PIPE_CHARACTER))
             {
                 string division = _division.Trim();
-                if(division!="")
+                if (division != "")
                 {
                     divisions.Add(division);
                 }
@@ -211,7 +211,7 @@ namespace libraries
         private List<string> getColumns(string division)
         {
             List<string> columns = new List<string>();
-            foreach (string _column in division.Split(new char[] { ' ' }))
+            foreach (string _column in division.Split(new char[] { SpecialKeys.SPACE_CHARACTER }))
             {
                 string column = _column.Trim();
                 if (column != "")
@@ -226,10 +226,10 @@ namespace libraries
         private List<string> getNotations(string column)
         {
             List<string> notations = new List<string>();
-            foreach (string _notation in column.Split(",")) // split multiple notes like C,B
+            foreach (string _notation in column.Split(SpecialKeys.COMMA)) // split multiple notes like C,B
             {
                 string notation = _notation.Trim();
-                if(notation!="")
+                if (notation != "")
                 {
                     notations.Add(notation);
                 }
@@ -243,7 +243,7 @@ namespace libraries
             List<Cell> processed = new List<Cell>();
             foreach (Cell cell in notes)
             {
-                if (cell.notation == "-")
+                if (cell.notation == SpecialKeys.CONTINUATION)
                 {
                     if (processed.Count() > 0)
                     {
@@ -255,7 +255,7 @@ namespace libraries
                         // @todo However, can start with x
                     }
                 }
-                else if (cell.notation == "x")
+                else if (cell.notation == SpecialKeys.SILENCE)
                 {
                     // @todo Help wanted
                     // insert a blank note

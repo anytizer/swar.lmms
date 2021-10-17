@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using configs;
+using System.Collections.Generic;
 
 namespace libraries
 {
@@ -10,7 +11,7 @@ namespace libraries
             string outputs;
             List<string> output = new List<string>();
 
-            string[] divisions = line.Split(new[] { '|', });
+            string[] divisions = line.Split(new[] { SpecialKeys.PIPE_CHARACTER, });
             foreach (string division in divisions)
             {
                 if (division != "")
@@ -20,7 +21,7 @@ namespace libraries
                 }
             }
 
-            outputs = string.Join(" | ", output.ToArray());
+            outputs = string.Join(SpecialKeys.DIVISION_SEPARATOR_FORMATTER, output.ToArray());
             return outputs;
         }
 
@@ -29,7 +30,7 @@ namespace libraries
             string outputs;
             List<string> output = new List<string>();
 
-            string[] cells = column.Split(new[] { ' ', });
+            string[] cells = column.Split(new[] { SpecialKeys.SPACE_CHARACTER, });
             foreach (string cell in cells)
             {
                 if (cell != "")
@@ -37,7 +38,7 @@ namespace libraries
                     output.Add(this.format_cell(cell));
                 }
             }
-            outputs = string.Join(" ", output.ToArray());
+            outputs = string.Join(SpecialKeys.SPACE_CHARACTER.ToString(), output.ToArray());
 
             return outputs;
         }

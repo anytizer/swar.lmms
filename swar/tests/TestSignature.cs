@@ -21,9 +21,9 @@ namespace tests
         [TestMethod]
         public void TempoParser()
         {
-            int tempo = Helpers.ParseTempo("240");
+            int tempo = Helpers.ParseTempo("280");
 
-            Assert.IsTrue(tempo == 240);
+            Assert.IsTrue(tempo == 280);
         }
     }
 }

@@ -47,20 +47,20 @@ namespace libraries
         public void load()
         {
             // Popular Time Signatures
-            Signature s1 = new Signature(2, 4, 140);
-            Signature s2 = new Signature(3, 4, 140);
-            Signature s3 = new Signature(2, 4, 280);
-            Signature s4 = new Signature(3, 4, 280); // popular teej melody
-            Signature s5 = new Signature(4, 4, 140);
-            Signature s6 = new Signature(4, 4, 280);
-            Signature s7 = new Signature(6, 8, 280);
+            Signature s_2_4_140 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_3_4_140 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_2_4_280 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.TWOEIGHTY);
+            Signature s_3_4_280 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.TWOEIGHTY); // popular teej melody
+            Signature s_4_4_140 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_4_4_280 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.TWOEIGHTY);
+            Signature s_6_8_280 = new Signature(Nominiators.SIX, Denominators.EIGHT, Tempos.TWOEIGHTY);
 
             List<string> sargams = Configurations.sargams();
             foreach(string sargam in sargams)
             {
                 // @todo Select time signature from sargam file name itself
-                this.read(sargam, s4);
-            }           
+                this.read(sargam, s_3_4_280);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using configs;
+using System;
 using System.IO;
 
 namespace libraries
@@ -33,7 +34,7 @@ namespace libraries
 
         public static int ParseDenominator(string _beat)
         {
-            string[] beats = _beat.Split(new char[] { '/' });
+            string[] beats = _beat.Split(new char[] { SpecialKeys.BEAT_SEPARATOR });
             int denominator = int.Parse(beats[1]);
 
             return denominator;

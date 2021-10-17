@@ -1,4 +1,5 @@
-﻿using dtos;
+﻿using configs;
+using dtos;
 using libraries;
 using System;
 using System.Windows.Forms;
@@ -9,6 +10,7 @@ namespace swar
     {
         private ApplicationSystem s;
         private Signature signature;
+        private Permissions acl;
 
         public swar()
         {
@@ -40,9 +42,14 @@ namespace swar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.acl = new Permissions();
+            this.acl.SetACLMode(FeaturesUnlocked.PREMIUM); // @todo Read from license
+
+            bool authority_xpt = acl.HasAuthority(PermissionsList.PRODUCE_XPT);
+
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             //comboBox2.SelectedIndex = 0;
 
             this.reboot();
@@ -159,19 +166,19 @@ namespace swar
         private void keyboardUserControl1_Load(object sender, EventArgs e)
         {
             keyboardUserControl1.process();
+
             foreach (Button b in keyboardUserControl1.keys())
             {
-                b.Click += new EventHandler(this._keyClick);
+                b.Click += new EventHandler(this._PianoKeyClick);
             }
 
-            // keyboardUserControl1.addSpecialKeys();
             foreach (Button b in keyboardUserControl1.special_keys())
             {
                 b.Click += new EventHandler(this._SpecialKeyClick);
             }
         }
 
-        private void _keyClick(object sender, EventArgs e)
+        private void _PianoKeyClick(object sender, EventArgs e)
         {
             Button s = sender as Button;
             // MessageBox.Show("Child reading: "+sender.ToString());
@@ -182,28 +189,34 @@ namespace swar
         {
             string add = "";
             Button s = sender as Button;
-            switch(s.Text)
+            switch (s.Text)
             {
-                case "#//":
+                case SpecialKeys.BLOCK_SEPARATOR:
                     add = "\r\n\r\n#//\r\n\r\n";
                     break;
-                case ",":
+                case SpecialKeys.COMMA:
                     add = s.Text;
                     break;
-                case "|":
+                case SpecialKeys.PIPE:
                     add = " | ";
                     break;
-                case "x":
+                case SpecialKeys.SILENCE:
                     add = " x ";
                     break;
-                case "-":
+               case SpecialKeys.CONTINUATION:
                     add = " - ";
                     break;
-                case "NL":
-                    add = "\r\n\r\n";
+                case SpecialKeys.NEWLINE:
+                    add = "\r\n";
                     break;
-                case "DEL":
+                case SpecialKeys.DELETE:
                     add = "";
+                    break;
+                case SpecialKeys.LOWER_OCTAVE:
+                    add = s.Text;
+                    break;
+                case SpecialKeys.HIGHER_OCTAVE:
+                    add = s.Text;
                     break;
                 default:
                     break;

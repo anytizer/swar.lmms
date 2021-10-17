@@ -33,3 +33,5 @@ Bottom Right: sargams.txt contents.
 Beats: Proposed pupular Time Signatures.
 
 Tempo: Proposed pupular tempos.
+
+This is a work in progress, and any content, documentation, source code, compiled binaries, etc. are subject to change.

@@ -12,14 +12,14 @@ namespace tests
         {
             ColorsRotator cr = new ColorsRotator();
             
-            Color first = cr.getNextColor();
-            Color second = cr.getNextColor();
-            Color third = cr.getNextColor();
-            Color fourth = cr.getNextColor();
-            Color fifth = cr.getNextColor();
-            Color sixth = cr.getNextColor();
+            Coloring first = cr.getNextColor();
+            Coloring second = cr.getNextColor();
+            Coloring third = cr.getNextColor();
+            Coloring fourth = cr.getNextColor();
+            Coloring fifth = cr.getNextColor();
+            Coloring sixth = cr.getNextColor();
 
-            Color seventh = cr.getNextColor();
+            Coloring seventh = cr.getNextColor();
 
             Assert.AreEqual("green", first.name);
             Assert.AreEqual("pink", second.name);
