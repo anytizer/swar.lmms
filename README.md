@@ -1,8 +1,10 @@
 # swar
 Convert SARGAM Notes to English Scales and XPT Pattern Files.
 
-This is a temporary solution for Custom Piano Labels using a reverse method, for LMMS.
-Here is the [discsussion thread](https://github.com/LMMS/lmms/issues/6162).
+Originally, this is a temporary solution for Custom Piano Labels using a reverse method, for LMMS.
+Here is the [discsussion thread](https://github.com/LMMS/lmms/issues/6162). The binary file can be used as an independent software as well.
+
+This source code is is put to public domain.
 
 ## Configurations
 
@@ -32,6 +34,8 @@ For more details on LMMS, [visit here](https://lmms.io/).
 
 # Software Interface
 ![SWAR Interface](interface.png)
+
+Click on the image for clarity.
 
 * Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
 * Right: English scales will be auto converted and formatted.
