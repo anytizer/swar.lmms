@@ -18,7 +18,7 @@
         public int column { get; set; }
 
         /**
-         * Position within column separated by [comma]
+         * Position within column when separated by [comma]
          */
         public int position { get; set; }
 

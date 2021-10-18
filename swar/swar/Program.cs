@@ -23,6 +23,7 @@ namespace swar
 
             Permissions acl = new Permissions();
             acl.SetACLMode(mode);
+
             swar converter = new swar();
             converter.permissions(acl);
 

@@ -21,7 +21,7 @@ namespace tests
             string fullpath = "d:/projects/title-1/notations-english.txt";
             string title = Helpers.SongTitle(fullpath);
 
-            Assert.IsTrue(title == "title1");
+            Assert.IsTrue(title == "title 1");
         }
     }
 }

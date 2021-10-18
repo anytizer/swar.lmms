@@ -117,7 +117,7 @@ namespace libraries
                                 column = column_number,
                                 position = position_number,
                                 notation = column,
-                                length = 1,
+                                length = 1.0f,
                             });
                         }
                         else
