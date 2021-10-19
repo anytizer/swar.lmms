@@ -46,20 +46,12 @@ namespace libraries
 
         public void load()
         {
-            // Popular Time Signatures
-            Signature s_2_4_140 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.ONEFOURTY);
-            Signature s_3_4_140 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.ONEFOURTY);
-            Signature s_2_4_280 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.TWOEIGHTY);
-            Signature s_3_4_280 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.TWOEIGHTY); // popular teej melody
-            Signature s_4_4_140 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.ONEFOURTY);
-            Signature s_4_4_280 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.TWOEIGHTY);
-            Signature s_6_8_280 = new Signature(Nominiators.SIX, Denominators.EIGHT, Tempos.TWOEIGHTY);
-
             List<string> sargams = Configurations.sargams();
             foreach(string sargam in sargams)
             {
-                // @todo Select time signature from sargam file name itself
-                this.read(sargam, s_3_4_280);
+                // Select time signature from sargam file name itself
+                Signature signature = Helpers.Signature(sargam);
+                this.read(sargam, signature); // default: s_3_4_280
             }
         }
     }

@@ -25,4 +25,8 @@
     <ProjectReference Include="..\configs\configs.csproj" />
     <ProjectReference Include="..\libraries\libraries.csproj" />
   </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
+  </PropertyGroup>
 </Project>

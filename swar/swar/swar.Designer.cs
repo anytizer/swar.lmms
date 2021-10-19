@@ -136,9 +136,9 @@
             // 
             // keyboardUserControl1
             // 
-            this.keyboardUserControl1.Location = new System.Drawing.Point(14, 608);
+            this.keyboardUserControl1.Location = new System.Drawing.Point(12, 601);
             this.keyboardUserControl1.Name = "keyboardUserControl1";
-            this.keyboardUserControl1.Size = new System.Drawing.Size(1128, 104);
+            this.keyboardUserControl1.Size = new System.Drawing.Size(1128, 85);
             this.keyboardUserControl1.TabIndex = 9;
             this.keyboardUserControl1.Load += new System.EventHandler(this.keyboardUserControl1_Load);
             // 
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 724);
+            this.ClientSize = new System.Drawing.Size(1154, 698);
             this.Controls.Add(this.keyboardUserControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox4);

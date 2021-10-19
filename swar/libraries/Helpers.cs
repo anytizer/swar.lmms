@@ -1,6 +1,8 @@
 ﻿using configs;
+using dtos;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace libraries
 {
@@ -45,6 +47,38 @@ namespace libraries
             int tempo = int.Parse(_tempo);
 
             return tempo;
+        }
+
+        public static Signature Signature(string filename)
+        {
+            // Popular Time Signatures
+            Signature s_2_4_140 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_3_4_140 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_2_4_280 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.TWOEIGHTY);
+            Signature s_3_4_280 = new Signature(Nominiators.THREE, Denominators.FOUR, Tempos.TWOEIGHTY); // popular teej melody
+            Signature s_4_4_140 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.ONEFOURTY);
+            Signature s_4_4_280 = new Signature(Nominiators.FOUR, Denominators.FOUR, Tempos.TWOEIGHTY);
+            Signature s_6_8_280 = new Signature(Nominiators.SIX, Denominators.EIGHT, Tempos.TWOEIGHTY);
+
+            int nominator = Nominiators.FOUR;
+            int denominator = Denominators.FOUR;
+            int tempo = Tempos.ONEFOURTY;
+
+            FileInfo fi = new FileInfo(filename);
+
+            string pattern = @"^notations-sargams-(\d+)-(\d+)-(\d+)\.txt$";
+            Regex re = new Regex(pattern);
+            Match chunks = re.Match(fi.Name);
+            if(chunks.Groups.Count == 4)
+            {
+                nominator = int.Parse(chunks.Groups[1].Value);
+                denominator = int.Parse(chunks.Groups[2].Value);
+                tempo = int.Parse(chunks.Groups[3].Value);
+            }
+
+            Signature ds = new Signature(nominator, denominator, tempo);
+
+            return ds;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace libraries
             this.width = 40;
 
             this.bgcolor = new Coloring { code = "#999999", name = "gray" };
-            this.forecolor = new Coloring { code = "#FFFFFF", name = "White" };
+            this.forecolor = new Coloring { code = "#FFFFFF", name = "white" };
         }
     }
 

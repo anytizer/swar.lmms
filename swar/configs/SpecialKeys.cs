@@ -17,6 +17,5 @@
         public const char PIPE_CHARACTER = '|';
         public const char SPACE_CHARACTER = ' ';
         public const char BEAT_SEPARATOR = '/';
-        // public const char SPACE_CHARACTER = ' ';
     }
 }
