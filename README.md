@@ -1,8 +1,7 @@
 # swar
-Convert SARGAM Notes to English Scales and XPT pattern file for [LMMS](https://lmms.io/).
+Convert SARGAM Notes to English Scales __and__ XPT Pattern File for [LMMS](https://lmms.io/).
 
-Originally, this is an alternative temporary solution for Custom Piano Labels.
-Here is the [discsussion thread](https://github.com/LMMS/lmms/issues/6162).
+Originally, this is an temporary/alternative solution for [Custom Piano Labels](https://github.com/LMMS/lmms/issues/6162).
 But the binary file can be used as an independent software as well.
 
 This source code is put into public domain.
@@ -11,10 +10,10 @@ This source code is put into public domain.
 
 ### Read/Write Directory
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
-Create a Windows directory `d:/desktop/xpt/`. Your swar executable files can be anywhere.
+Create a Windows directory `d:/projects/xpt.lmms/`. Your swar executable files can be anywhere.
 
 ### license.txt
-Put "100" without quotes to `d:/desktop/xpt/license.txt` file for features unblocked to premium.
+Put "100" without quotes to `d:/projects/xpt.lmms/license.txt` file for features unblocked to premium.
 
 ### Sargams: Read File List
 Create d:/desktop/xpt/sargams.txt file with a full path to a sargam note.
