@@ -8,6 +8,7 @@ namespace libraries
     {
         public List<Tone> tones;
 
+        // @todo Pass translation parameter as a DTO/Enum
         public List<Tone> LoadNotes(string translation)
         {
             // Syllables solfege = new Syllables().translate(Scales.NorthIndianClassicalUnicode);
@@ -18,6 +19,7 @@ namespace libraries
             PureTone pure = new PureTone();
 
             // Reference: https://pages.mtu.edu/~suits/notefreqs.html
+            // Bhatkhande Update: The seasons may change the density of air and hence, diffrent quality is required.
             this.tones = new List<Tone>();
             tones.Add(new Tone() { frequency = "261.63", wavelength = "131.87", name = solfege.C, tonality = pure });
             tones.Add(new Tone() { frequency = "277.18", wavelength = "124.47", name = solfege.CSharp, tonality = semi });

@@ -13,11 +13,12 @@ namespace dtos
             lr = new List<Replacement>();
 
             // oddities
-            lr.Add(new Replacement() { find = "º", replace = SpecialKeys.HIGHER_OCTAVE });
+            lr.Add(new Replacement() { find = "º", replace = SpecialKeys.HIGHER_OCTAVE_NOTATION });
             lr.Add(new Replacement() { find = "™", replace = SpecialKeys.HASH });
+            // lr.Add(new Replacement() { find = "‘", replace = SpecialKeys.LOWER_OCTAVE_NOTATION }); // appears in front
 
             // common symbols
-            lr.Add(new Replacement() { find = "°", replace = SpecialKeys.HIGHER_OCTAVE });
+            lr.Add(new Replacement() { find = "°", replace = SpecialKeys.HIGHER_OCTAVE_NOTATION });
             lr.Add(new Replacement() { find = "`", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "'", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "_", replace = SpecialKeys.CONTINUATION });
@@ -25,10 +26,10 @@ namespace dtos
             lr.Add(new Replacement() { find = "/", replace = SpecialKeys.PIPE });
 
             // to sargam - single letter
+            lr.Add(new Replacement() { find = "h", replace = "" }); // Dha => h part
             lr.Add(new Replacement() { find = "a", replace = "" });
             lr.Add(new Replacement() { find = "e", replace = "" });
             lr.Add(new Replacement() { find = "i", replace = "" });
-            lr.Add(new Replacement() { find = "h", replace = "" }); // Dha
 
             // to sargam standards - multi letters
             lr.Add(new Replacement() { find = "s", replace = "sa" });
@@ -52,6 +53,7 @@ namespace dtos
 
         private string replace(string sargam)
         {
+            // @todo Must be typed in lower case!
             string scales = sargam; // .ToLower();
             foreach (Replacement r in lr)
             {
@@ -75,7 +77,7 @@ namespace dtos
                 string line = lines[i].Trim();
                 if (line != "")
                 {
-                    if (!line.StartsWith("#"))
+                    if (!line.StartsWith(SpecialKeys.HASH))
                     {
                         ++line_number;
 

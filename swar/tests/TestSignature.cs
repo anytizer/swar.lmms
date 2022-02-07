@@ -38,7 +38,7 @@ namespace tests
         public void SignatureParser()
         {
             string filename = "notations-sargams-3-4-280.txt";
-            Signature s = Helpers.Signature(filename);
+            Signature s = Helpers.SignatureFromFilename(filename);
 
             Assert.AreEqual(3, s.beat_nominator);
             Assert.AreEqual(4, s.beat_denominator);

@@ -10,7 +10,7 @@ namespace configs
         public const string version = "0.0.1";
 
         // Directory MUST exist
-        public const string ReadWriteDirectory = "d:/desktop/xpt";
+        public const string ReadWriteDirectory = "d:/projects/lmms.xpt";
 
         public static List<string> sargams()
         {
@@ -20,7 +20,7 @@ namespace configs
             foreach (string _line in lines)
             {
                 string line = _line.Trim();
-                if (line != "" && !line.StartsWith("#") && File.Exists(line))
+                if (line != "" && !line.StartsWith(SpecialKeys.HASH) && File.Exists(line))
                 {
                     sargams.Add(line);
                 }

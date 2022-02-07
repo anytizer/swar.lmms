@@ -38,6 +38,7 @@ namespace libraries
         {
             List<ComboItem> ci = new List<ComboItem>();
             
+            // @todo Use defintions from DTO/Configs
             ci.Add(new ComboItem() {
                 Text = "2/4",
                 Value = "2/4",
@@ -104,6 +105,13 @@ namespace libraries
             {
                 Text = "140",
                 Value = "140",
+                ExtraValue = "",
+            });
+
+            ci.Add(new ComboItem()
+            {
+                Text = "170",
+                Value = "170",
                 ExtraValue = "",
             });
 

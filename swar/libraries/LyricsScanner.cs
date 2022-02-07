@@ -5,7 +5,7 @@ using System.Text;
 
 namespace libraries
 {
-    // to build a list of databases
+    // to build a list of local databases
     public class LyricsScanner
     {
         public List<Lyrics> scan(string dir)

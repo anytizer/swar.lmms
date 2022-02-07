@@ -6,5 +6,6 @@
         public static int THREE = 3;
         public static int FOUR = 4;
         public static int SIX = 6;
+        public static int EIGHT = 8;
     }
 }

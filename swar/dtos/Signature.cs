@@ -2,10 +2,10 @@
 {
     public class Signature
     {
-        public int beat_nominator { get; set; }
-        public int beat_denominator { get; set; }
-        public float quantization { get; set; }
-        public int tempo { get; set; }
+        public int beat_nominator { get; set; } = 0;
+        public int beat_denominator { get; set; } = 0;
+        public float quantization { get; set; } = 0.00f;
+        public int tempo { get; set; } = 0;
 
         public Signature(int nominator, int deniminator, int tempo)
         {

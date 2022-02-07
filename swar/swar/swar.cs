@@ -221,10 +221,10 @@ namespace swar
                     add = s.Text;
                     break;
                 case SpecialKeys.PIPE:
-                    add = " | ";
+                    add = SpecialKeys.DIVISION_SEPARATOR_FORMATTER;
                     break;
                 case SpecialKeys.SILENCE:
-                    add = " x ";
+                    add = SpecialKeys.SILENCE_FORMATTER;
                     break;
                case SpecialKeys.CONTINUATION:
                     add = " - ";
@@ -235,10 +235,10 @@ namespace swar
                 case SpecialKeys.DELETE:
                     add = "";
                     break;
-                case SpecialKeys.LOWER_OCTAVE:
+                case SpecialKeys.LOWER_OCTAVE_NOTATION:
                     add = s.Text;
                     break;
-                case SpecialKeys.HIGHER_OCTAVE:
+                case SpecialKeys.HIGHER_OCTAVE_NOTATION:
                     add = s.Text;
                     break;
                 default:

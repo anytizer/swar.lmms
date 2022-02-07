@@ -49,9 +49,9 @@ namespace libraries
             List<string> sargams = Configurations.sargams();
             foreach(string sargam in sargams)
             {
-                // Select time signature from sargam file name itself
-                Signature signature = Helpers.Signature(sargam);
-                this.read(sargam, signature); // default: s_3_4_280
+                // Select time signature from sargam's filename itself
+                Signature signature = Helpers.SignatureFromFilename(sargam);
+                this.read(sargam, signature); // default: 3_4_280
             }
         }
     }

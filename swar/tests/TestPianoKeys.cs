@@ -29,6 +29,17 @@ namespace tests
         }
 
         [TestMethod]
+        public void TestKeyC5Sharp()
+        {
+            string key = "C#*"; // C#5
+
+            PianoKeys pk = new PianoKeys();
+            int CSharp = pk.getPianoKey(key);
+
+            Assert.AreEqual(72, CSharp);
+        }
+
+        [TestMethod]
         public void TestKeyC3()
         {
             string key = "C."; // C3

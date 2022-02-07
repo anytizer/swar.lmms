@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace libraries
 {
-    // make the notations readable and visually aligned
+    // visually align the notations
     class Formatter
     {
         public string format_divisions(string line)

@@ -29,6 +29,7 @@ namespace tests
 
             Assert.IsTrue(r.SargamsNotationsExist());
             Assert.IsTrue(r.EnglishNotationsExist());
+            Assert.IsTrue(r.UnicodeNotationsExist());
         }
 
         [TestMethod]

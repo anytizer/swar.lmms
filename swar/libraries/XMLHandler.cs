@@ -24,7 +24,7 @@ namespace libraries
         {
             List<string> xpts = new List<string>();
 
-            List<string> blocks = this.getBlocks(scales); // #//
+            List<string> blocks = this.getBlocks(scales); // Commented with: #//
             ColorsRotator cr = new ColorsRotator();
             int sequence = 0;
             foreach (string block in blocks)
@@ -89,7 +89,7 @@ namespace libraries
 
                         if (column.Contains(SpecialKeys.COMMA))
                         {
-                            int elements = column.Count(s => s == ',') + 1;
+                            int elements = column.Count(s => s == SpecialKeys.COMMA_CHARACTER) + 1;
                             float semilength = 1.0f / elements; // @todo Avoid division by zero
                             List<string> notations = this.getNotations(column);
                             foreach (string seminote in notations)

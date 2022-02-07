@@ -54,17 +54,19 @@ namespace libraries
 
         public int getPianoKey(string name)
         {
-            int octave = 4 + 1;
-            if (name.Contains("*"))
+            // on higher octave
+            int octave = 4 + 1; // C4 is the standard key root
+            if (name.Contains(SpecialKeys.HIGHER_OCTAVE_NOTATION))
             {
-                octave += name.Count(s => s == '*');
-                name = name.Replace("*", "");
+                octave += name.Count(s => s == SpecialKeys.HIGHER_OCTAVE_NOTATION_CHARACTER);
+                name = name.Replace(SpecialKeys.HIGHER_OCTAVE_NOTATION, string.Empty);
             }
 
-            if (name.Contains("."))
+            // on lower octave
+            if (name.Contains(SpecialKeys.LOWER_OCTAVE_NOTATION))
             {
-                octave -= name.Count(s => s == '.');
-                name = name.Replace(".", "");
+                octave -= name.Count(s => s == SpecialKeys.LOWER_OCTAVE_NOTATION_CHARACTER);
+                name = name.Replace(SpecialKeys.LOWER_OCTAVE_NOTATION, string.Empty);
             }
 
             int notenumber = this.search(name);
@@ -75,9 +77,11 @@ namespace libraries
 
         private bool specialKey(string key)
         {
-            if (key == "-")
+            if (key == SpecialKeys.CONTINUATION)
                 return true;
             else
+                // @todo Handle silence
+                // SpecialKeys.SILENCE
                 return false;
         }
 

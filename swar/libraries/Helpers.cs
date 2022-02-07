@@ -49,7 +49,7 @@ namespace libraries
             return tempo;
         }
 
-        public static Signature Signature(string filename)
+        public static Signature SignatureFromFilename(string filename)
         {
             // Popular Time Signatures
             Signature s_2_4_140 = new Signature(Nominiators.TWO, Denominators.FOUR, Tempos.ONEFOURTY);

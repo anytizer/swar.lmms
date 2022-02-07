@@ -12,10 +12,7 @@ namespace libraries
 
         public int mode()
         {
-            // read license.txt's mode and other details
-            // @todo read more details like: owner, expiry, validity
-            string license = File.ReadAllText(Configurations.ReadWriteDirectory + "/license.txt").Trim();
-            int mode = int.Parse(license);
+            int mode = this.get_mode();
 
             switch(mode)
             {
@@ -29,6 +26,16 @@ namespace libraries
                     break;
             }
             
+            return mode;
+        }
+
+        private int get_mode()
+        {
+            // read license.txt's mode and other details
+            // @todo read more details like: owner, expiry, validity
+            string license = File.ReadAllText(Configurations.ReadWriteDirectory + "/license.txt").Trim();
+            int mode = int.Parse(license);
+
             return mode;
         }
     }

@@ -77,8 +77,8 @@ namespace swar
             special_keys.Add(new KeyHandler() { key = SpecialKeys.SILENCE, tooltip = "Silence" });
             special_keys.Add(new KeyHandler() { key = SpecialKeys.NEWLINE, tooltip = "New Line" });
             special_keys.Add(new KeyHandler() { key = SpecialKeys.DELETE, tooltip = "Delete" });
-            special_keys.Add(new KeyHandler() { key = SpecialKeys.LOWER_OCTAVE, tooltip = "Lower Octave" });
-            special_keys.Add(new KeyHandler() { key = SpecialKeys.HIGHER_OCTAVE, tooltip = "Higher Octave" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.LOWER_OCTAVE_NOTATION, tooltip = "Lower Octave" });
+            special_keys.Add(new KeyHandler() { key = SpecialKeys.HIGHER_OCTAVE_NOTATION, tooltip = "Higher Octave" });
 
             int x = 650;
             int y = 0;

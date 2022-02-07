@@ -2,7 +2,7 @@
 {
     public class Replacement
     {
-        public string find { get; set; }
-        public string replace { get; set; }
+        public string find { get; set; } = "";
+        public string replace { get; set; } = "";
     }
 }
