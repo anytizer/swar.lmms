@@ -8,7 +8,7 @@ namespace libraries
 {
     public class XMLHandler
     {
-        private int width = 48;
+        private const int width = 48; // 4 x 4 = 48
 
         public XMLHandler()
         {
@@ -147,12 +147,12 @@ namespace libraries
             {
                 if (cell.notation == SpecialKeys.SILENCE)
                 {
-                    pos = pos + this.width;
+                    pos = pos + XMLHandler.width;
                 }
                 else
                 {
                     int pianoKey = pk.getPianoKey(cell.notation);
-                    int lengthval = (int)Math.Ceiling(cell.length * this.width);
+                    int lengthval = (int)Math.Ceiling(cell.length * XMLHandler.width);
                     xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, lengthval, pos, cell.notation, cell.length);
                     pos = pos + lengthval;
                 }
@@ -260,10 +260,10 @@ namespace libraries
                     // @todo Help wanted
                     // insert a blank note
                     // increase the position
-                    // can! start with x
+                    // can! start with x (any beat)
                     // processed.Last().position += this.width;
                     // new note's position will be this position + width
-                    // handled later
+                    // this.width += cell.position;
                 }
                 else
                 {

@@ -38,7 +38,9 @@ namespace swar
             if (authority)
             {
                 ApplicationSystem s = new ApplicationSystem();
-                textBox2.Text = s.convert(textBox1.Text, signature);
+                string with_comments = s.convert(textBox1.Text, signature);
+                string without_comments = s.no_comments_on_screen(with_comments);
+                textBox2.Text = without_comments;
             }
             else
             {

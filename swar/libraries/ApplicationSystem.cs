@@ -19,5 +19,22 @@ namespace libraries
             
             return scales;
         }
+
+        public string no_comments_on_screen(string with_comments="")
+        {
+            string no_comments = "";
+            List<string> output = new List<string>() { };
+            string[] no_comments_lined = with_comments.Split(new[] { '\r', '\n' });
+            foreach(string line in no_comments_lined)
+            {
+                if (!line.StartsWith(configs.SpecialKeys.HASH) && line!="")
+                {
+                    output.Add(line);
+                }
+            }
+
+            no_comments = string.Join("\r\n", output);
+            return no_comments;
+        }
     }
 }

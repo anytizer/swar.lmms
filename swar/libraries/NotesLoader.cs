@@ -26,13 +26,13 @@ namespace libraries
             tones.Add(new Tone() { frequency = "293.66", wavelength = "117.48", name = solfege.D, tonality = pure });
             tones.Add(new Tone() { frequency = "311.13", wavelength = "110.89", name = solfege.DSharp, tonality = semi });
             tones.Add(new Tone() { frequency = "329.63", wavelength = "104.66", name = solfege.E, tonality = pure });
-            tones.Add(new Tone() { frequency = "349.23", wavelength = "98.79", name = solfege.F, tonality = pure });
-            tones.Add(new Tone() { frequency = "369.99", wavelength = "93.24", name = solfege.FSharp, tonality = semi });
-            tones.Add(new Tone() { frequency = "392.00", wavelength = "88.01", name = solfege.G, tonality = pure });
-            tones.Add(new Tone() { frequency = "415.30", wavelength = "83.07", name = solfege.GSharp, tonality = semi });
-            tones.Add(new Tone() { frequency = "440.00", wavelength = "78.41", name = solfege.A, tonality = pure });
-            tones.Add(new Tone() { frequency = "466.16", wavelength = "74.01", name = solfege.ASharp, tonality = semi });
-            tones.Add(new Tone() { frequency = "493.88", wavelength = "69.85", name = solfege.B, tonality = pure });
+            tones.Add(new Tone() { frequency = "349.23", wavelength = "098.79", name = solfege.F, tonality = pure });
+            tones.Add(new Tone() { frequency = "369.99", wavelength = "093.24", name = solfege.FSharp, tonality = semi });
+            tones.Add(new Tone() { frequency = "392.00", wavelength = "088.01", name = solfege.G, tonality = pure });
+            tones.Add(new Tone() { frequency = "415.30", wavelength = "083.07", name = solfege.GSharp, tonality = semi });
+            tones.Add(new Tone() { frequency = "440.00", wavelength = "078.41", name = solfege.A, tonality = pure });
+            tones.Add(new Tone() { frequency = "466.16", wavelength = "074.01", name = solfege.ASharp, tonality = semi });
+            tones.Add(new Tone() { frequency = "493.88", wavelength = "069.85", name = solfege.B, tonality = pure });
 
             return tones;
         }
