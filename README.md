@@ -4,10 +4,6 @@ Convert SARGAM Notes to English Scales __and__ XPT Pattern File for [LMMS](https
 Originally, this is an alternative solution for [Custom Piano Labels](https://github.com/LMMS/lmms/issues/6162).
 But the binary file can be used as an independent software as well.
 
-["pattern" has been changed with "midiclip"](https://github.com/LMMS/lmms/issues/5592) in the xml.
-So make sure you use a nightly build.
-eg. [lmms-1.3.0-alpha.1.216+](https://nightly.link/LMMS/lmms/workflows/build/master/mingw64.zip)
-
 ## Configurations
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
 Create a Windows directory `d:/projects/lmms.xpt/`.
@@ -29,5 +25,9 @@ Click on the image for high resolution clarity.
 
 It will write `swar-*.xpt` chunk files when the sargam notes change.
 You can later import these xpt xml files directly in the pianoroll of LMMS.
+
+Lately, ["pattern" has been changed with "midiclip"](https://github.com/LMMS/lmms/issues/5592) in the xml.
+So make sure you use a nightly build.
+eg. [lmms-1.3.0-alpha.1.216+](https://nightly.link/LMMS/lmms/workflows/build/master/mingw64.zip)
 
 This is a work in progress, and any content, documentation, source code, compiled binaries, etc. are subject to change.
