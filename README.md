@@ -12,9 +12,6 @@ This source code is put into public domain.
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
 Create a Windows directory `d:/projects/xpt.lmms/`. Your swar executable files can be anywhere.
 
-### license.txt
-Put "100" without quotes to `d:/projects/xpt.lmms/license.txt` file for features unblocked to premium.
-
 ### Sargams: Read File List
 Create d:/desktop/xpt/sargams.txt file with a full path to a sargam note.
 When the application starts, it reads the sargam notations from files listed in `sargams.txt` file.
