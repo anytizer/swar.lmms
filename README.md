@@ -1,21 +1,17 @@
-# swar
+# swar.lmms
 Convert SARGAM Notes to English Scales __and__ XPT Pattern File for [LMMS](https://lmms.io/).
 
-Originally, this is an temporary/alternative solution for [Custom Piano Labels](https://github.com/LMMS/lmms/issues/6162).
+Originally, this is an alternative solution for [Custom Piano Labels](https://github.com/LMMS/lmms/issues/6162).
 But the binary file can be used as an independent software as well.
 
-This source code is put into public domain.
+["pattern" has been changed with "midiclip"](https://github.com/LMMS/lmms/issues/5592) in the xml.
+So make sure you use a nightly build.
+eg. [lmms-1.3.0-alpha.1.216+](https://nightly.link/LMMS/lmms/workflows/build/master/mingw64.zip)
 
 ## Configurations
-
-### Read/Write Directory
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
 Create a Windows directory `d:/projects/lmms.xpt/`.
 Your swar executable files can be anywhere.
-
-A `#` character is a comment, when used in the front of the line.
-Make sure that the full path is valid, and sargam note exists.
-Recommended file name is: `<project>/notations/notations-sargams.txt`.
 
 ## Important Files
 
@@ -28,7 +24,7 @@ Recommended file name is: `<project>/notations/notations-sargams.txt`.
 
 Click on the image for high resolution clarity.
 
-* Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes)
+* Left: Sargam Notes (Paste your unformatted sa, re, ga, ma, ... notes) eg. [as in here](https://github.com/anytizer/melodies.lmms/blob/main/melodies/%E0%A4%A4%E0%A5%80%E0%A4%9C%20%E0%A4%AD%E0%A4%BE%E0%A4%95%E0%A4%BE%20-%20%E0%A4%AA%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%A8%E0%A5%8B/notations/notations-sargams.txt)
 * Right: English scales will be auto converted and formatted.
 
 It will write `swar-*.xpt` chunk files when the sargam notes change.
