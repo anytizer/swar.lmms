@@ -18,6 +18,17 @@ namespace tests
         }
 
         [TestMethod]
+        public void TestKeyGShap4()
+        {
+            string key = "G'"; // G#4
+
+            PianoKeys pk = new PianoKeys();
+            int GShap4 = pk.getPianoKey(key);
+
+            Assert.AreEqual(60+8, GShap4);
+        }
+
+        [TestMethod]
         public void TestKeyCSharp()
         {
             string key = "C#"; // C4#
@@ -32,6 +43,17 @@ namespace tests
         public void TestKeyC5Sharp()
         {
             string key = "C#*"; // C#5
+
+            PianoKeys pk = new PianoKeys();
+            int CSharp = pk.getPianoKey(key);
+
+            Assert.AreEqual(72, CSharp);
+        }
+
+        [TestMethod]
+        public void TestKeyC5thSharp()
+        {
+            string key = "C'*"; // C#5
 
             PianoKeys pk = new PianoKeys();
             int CSharp = pk.getPianoKey(key);

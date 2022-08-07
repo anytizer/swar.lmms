@@ -6,5 +6,6 @@
         public string lyrics { get; set; } = "";
 
         public Signature signature { get; set; }
+        //public Tempo tempo { get; set; }
     }
 }

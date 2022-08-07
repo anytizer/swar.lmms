@@ -7,10 +7,10 @@
         public float quantization { get; set; } = 0.00f;
         public int tempo { get; set; } = 0;
 
-        public Signature(int nominator, int deniminator, int tempo)
+        public Signature(int nominator, int denominator, int tempo)
         {
             this.beat_nominator = nominator;
-            this.beat_denominator = deniminator;
+            this.beat_denominator = denominator;
             this.quantization = 1.0f / 4; // @todo Fix quantization
             this.tempo = tempo;
         }

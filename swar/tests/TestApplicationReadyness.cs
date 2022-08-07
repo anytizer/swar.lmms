@@ -24,7 +24,7 @@ namespace tests
             string sargams = "sa*'";
             Signature signature = new Signature(3, 4, 280);
 
-            string scales = s.convert(sargams, signature);
+            string scales = s.convert(sargams, signature, "", true);
             Assert.AreEqual("1: C#", scales.Trim());
 
             Assert.IsTrue(r.SargamsNotationsExist());
@@ -40,7 +40,7 @@ namespace tests
             string sargams = "sa";
             Signature signature = new Signature(3, 4, 280);
 
-            string scales = s.convert(sargams, signature);
+            string scales = s.convert(sargams, signature, "", true);
             Assert.AreEqual("1: C", scales.Trim());
         }
     }

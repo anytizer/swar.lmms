@@ -18,15 +18,7 @@ namespace swar
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            License license = new License();
-            int mode = license.mode(); // FeaturesUnlocked.PREMIUM
-
-            Permissions acl = new Permissions();
-            acl.SetACLMode(mode);
-
-            swar converter = new swar();
-            converter.permissions(acl);
-
+            SwarConverter converter = new SwarConverter();
             Application.Run(converter);
         }
     }

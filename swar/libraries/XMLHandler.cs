@@ -8,7 +8,7 @@ namespace libraries
 {
     public class XMLHandler
     {
-        private const int width = 48; // 4 x 4 = 48
+        private const int width = 48; // 4 x 16 pixels = 48
 
         public XMLHandler()
         {
@@ -20,11 +20,11 @@ namespace libraries
             // play length factor
         }
 
-        public List<string> generate(string scales, Signature signature)
+        public List<string> generate(string scales, Signature signature, bool split = true)
         {
             List<string> xpts = new List<string>();
 
-            List<string> blocks = this.getBlocks(scales); // Commented with: #//
+            List<string> blocks = this.getBlocks(scales, split); // Commented with: #//
             ColorsRotator cr = new ColorsRotator();
             int sequence = 0;
             foreach (string block in blocks)
@@ -44,18 +44,28 @@ namespace libraries
             return xpts;
         }
 
-        private List<string> getBlocks(string scales)
+        private List<string> getBlocks(string scales, bool split = true)
         {
-            List<string> blocks = new List<string>();
-            string[] raw_blocks = scales.Split(SpecialKeys.BLOCK_SEPARATOR);
-            foreach (string _block in raw_blocks)
+            List<string> blocks = new List<string>() { };
+
+            string[] raw_blocks = { };
+            if (split)
             {
-                string block = _block.Trim();
-                if (block != "")
+                raw_blocks = scales.Split(SpecialKeys.BLOCK_SEPARATOR);
+                foreach (string _block in raw_blocks)
                 {
-                    blocks.Add(block);
+                    string block = _block.Trim();
+                    if (block != "")
+                    {
+                        blocks.Add(block);
+                    }
                 }
             }
+            else
+            {
+                blocks.Add(scales);
+            }
+
 
             return blocks;
         }
@@ -107,7 +117,8 @@ namespace libraries
                                 });
                             }
                         }
-                        else if (column != "") // (pk.isValidKey(column))
+                        else if (column != "" && column != SpecialKeys.PIPE) // working
+                        //else // if (pk.isValidKey(column))
                         //else if (pk.isValidKey(column))
                         {
                             cells.Add(new Cell
@@ -119,10 +130,6 @@ namespace libraries
                                 notation = column,
                                 length = 1.0f,
                             });
-                        }
-                        else
-                        {
-                            // error!
                         }
                     }
                 }
@@ -139,27 +146,71 @@ namespace libraries
 
             string xml = string.Format(@"<?xml version='1.0'?>
 <!DOCTYPE lmms-project>
-<lmms-project version='20' creatorversion='{0}' type='pattern' creator='{1}'>
-  <head/>
-  <pattern steps='{2}' muted='0' name='{3}' color='{4}' type='1' pos='0'>", Configurations.version, Configurations.name, steps, sequence, color.code);
+<lmms-project version='20' creatorversion='{0}' type='midiclip' creator='{1}'>
+    <head/>
+    <midiclip steps='{2}' muted='0' name='{3}' color='{4}' type='1' pos='0'>", Configurations.version, Configurations.name, steps, sequence, color.code);
+
             int pos = 0;
+            List<Cell> cells = new List<Cell>() { };
+
             foreach (Cell cell in notes)
             {
-                if (cell.notation == SpecialKeys.SILENCE)
+                int unit_length = (int)Math.Ceiling(cell.length * XMLHandler.width);
+
+                if (cell.notation == SpecialKeys.CONTINUATION)
                 {
-                    pos = pos + XMLHandler.width;
+                    if (cells.Count > 0)
+                    {
+                        cells.Last().length += unit_length;
+
+                        continue;
+                    }
+                    else
+                    {
+                        // cannot start with a continuation in the first
+                    }
+
+                    // @todo if the position is in last..., include it
                 }
-                else
+                else if (cell.notation == SpecialKeys.SILENCE)
                 {
-                    int pianoKey = pk.getPianoKey(cell.notation);
-                    int lengthval = (int)Math.Ceiling(cell.length * XMLHandler.width);
-                    xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, lengthval, pos, cell.notation, cell.length);
-                    pos = pos + lengthval;
+                    pos += unit_length;
+                    continue;
                 }
+
+                Cell new_cell = cell;
+                new_cell.position = pos;
+                new_cell.length = unit_length;
+
+                cells.Add(new_cell);
+
+                pos += unit_length; // prepare for next loop
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //foreach (Cell cell in notes)
+            foreach (Cell cell in cells)
+            {
+                int pianoKey = pk.getPianoKey(cell.notation);
+                xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, cell.length, cell.position, cell.notation, cell.length);
             }
 
             xml += @"
-  </pattern>
+    </midiclip>
 </lmms-project>";
 
             xml = xml.Replace("'", "\"");
@@ -238,11 +289,16 @@ namespace libraries
             return notations;
         }
 
-        private List<Cell> process(List<Cell> notes)
+        private List<Cell> process(List<Cell> rawnotes)
         {
+            // @todo: 'x' can appear in the begining as well
+
             List<Cell> processed = new List<Cell>();
-            foreach (Cell cell in notes)
+
+
+            foreach (Cell cell in rawnotes)
             {
+
                 if (cell.notation == SpecialKeys.CONTINUATION)
                 {
                     if (processed.Count() > 0)
@@ -251,22 +307,19 @@ namespace libraries
                     }
                     else
                     {
-                        // cannot start with a -
-                        // @todo However, can start with x
+                        //processed.Add(cell);
                     }
+
                 }
                 else if (cell.notation == SpecialKeys.SILENCE)
                 {
-                    // @todo Help wanted
-                    // insert a blank note
-                    // increase the position
-                    // can! start with x (any beat)
-                    // processed.Last().position += this.width;
-                    // new note's position will be this position + width
-                    // this.width += cell.position;
+                    //processed.Last().length += cell.length;
+                    processed.Add(cell);
                 }
                 else
                 {
+                    // cannot start with a -
+                    // @todo However, can start with x
                     processed.Add(cell);
                 }
             }

@@ -51,6 +51,15 @@ namespace dtos
             lr.Add(new Replacement() { find = "ni", replace = "B" });
         }
 
+        public string translate(string note, string to)
+        {
+            string note_translated = note;
+            return note_translated;
+            // eg. C => SA
+            // eg. C => सा
+            // eg. C => DO
+        }
+
         private string replace(string sargam)
         {
             // @todo Must be typed in lower case!
@@ -66,6 +75,12 @@ namespace dtos
         public string process(string sargam)
         {
             string scales = sargam;
+            scales = scales.Replace("(", "");
+            scales = scales.Replace(")", "");
+            scales = scales.Replace("{", "");
+            scales = scales.Replace("}", "");
+
+
             string[] lines = scales.Split(new[] { '\r', '\n' });
             List<string> output = new List<string>();
 

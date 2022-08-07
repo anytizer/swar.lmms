@@ -43,16 +43,5 @@ namespace libraries
             string lyrics = File.ReadAllText(filename, Encoding.UTF8);
             return lyrics;
         }
-
-        public void load()
-        {
-            List<string> sargams = Configurations.sargams();
-            foreach(string sargam in sargams)
-            {
-                // Select time signature from sargam's filename itself
-                Signature signature = Helpers.SignatureFromFilename(sargam);
-                this.read(sargam, signature); // default: 3_4_280
-            }
-        }
     }
 }
