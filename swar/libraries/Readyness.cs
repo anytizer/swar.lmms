@@ -56,7 +56,7 @@ namespace libraries
             {
                 ++sequence;
 
-                File.WriteAllText(string.Format("{0}/lmms-{1,2}.xpt", path, sequence.ToString("00")), xpt);
+                File.WriteAllText(string.Format("{0}/swar-{1,2}.xpt", path, sequence.ToString("00")), xpt);
             }
 
             File.WriteAllText(string.Format("{0}/{1}", path, EnglishNotationsFile), scales);
@@ -65,27 +65,27 @@ namespace libraries
         public bool DeleteXPTs()
         {
             string[] XPTs = new[] {
-                "lmms-00.xpt",
-                "lmms-01.xpt",
-                "lmms-02.xpt",
-                "lmms-03.xpt",
-                "lmms-04.xpt",
-                "lmms-05.xpt",
-                "lmms-06.xpt",
-                "lmms-07.xpt",
-                "lmms-08.xpt",
-                "lmms-09.xpt",
-                "lmms-10.xpt",
-                "lmms-11.xpt",
-                "lmms-12.xpt",
-                "lmms-13.xpt",
-                "lmms-14.xpt",
-                "lmms-15.xpt",
-                "lmms-16.xpt",
-                "lmms-17.xpt",
-                "lmms-18.xpt",
-                "lmms-19.xpt",
-                "lmms-20.xpt",
+                "swar-00.xpt",
+                "swar-01.xpt",
+                "swar-02.xpt",
+                "swar-03.xpt",
+                "swar-04.xpt",
+                "swar-05.xpt",
+                "swar-06.xpt",
+                "swar-07.xpt",
+                "swar-08.xpt",
+                "swar-09.xpt",
+                "swar-10.xpt",
+                "swar-11.xpt",
+                "swar-12.xpt",
+                "swar-13.xpt",
+                "swar-14.xpt",
+                "swar-15.xpt",
+                "swar-16.xpt",
+                "swar-17.xpt",
+                "swar-18.xpt",
+                "swar-19.xpt",
+                "swar-20.xpt",
             };
 
             foreach (string xptfile in XPTs)

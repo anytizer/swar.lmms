@@ -187,26 +187,10 @@ namespace libraries
                 pos += unit_length; // prepare for next loop
             }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //foreach (Cell cell in notes)
-            foreach (Cell cell in cells)
+            foreach (Cell cell in cells) // cells | notes
             {
                 int pianoKey = pk.getPianoKey(cell.notation);
-                xml += "\r\n    " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, cell.length, cell.position, cell.notation, cell.length);
+                xml += "\r\n        " + string.Format(@"<note pan='0' vol='100' key='{0}' len='{1}' pos='{2}' name='{3}: {4}' />", pianoKey, cell.length, cell.position, cell.notation, cell.length);
             }
 
             xml += @"
