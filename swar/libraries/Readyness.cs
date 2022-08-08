@@ -86,14 +86,24 @@ namespace libraries
                 "swar-18.xpt",
                 "swar-19.xpt",
                 "swar-20.xpt",
+                "swar-21.xpt",
+                "swar-22.xpt",
+                "swar-23.xpt",
+                "swar-24.xpt",
+                "swar-25.xpt",
+                "swar-26.xpt",
+                "swar-27.xpt",
+                "swar-28.xpt",
+                "swar-29.xpt",
+                "swar-30.xpt",
             };
 
-            foreach (string xptfile in XPTs)
+            foreach (string filename in XPTs)
             {
-                string file = path + "/" + xptfile;
-                if (File.Exists(file))
+                string xpt_file = path + "/" + filename;
+                if (File.Exists(xpt_file))
                 {
-                    File.Delete(file);
+                    File.Delete(xpt_file);
                 }
             }
 
@@ -115,9 +125,11 @@ namespace libraries
             return this.notationFileExists(UnicodeNotationsFile);
         }
 
-        private bool notationFileExists(string filename="/tmp/file.txt")
+        private bool notationFileExists(string raw_filename="/tmp/file.txt")
         {
             // @todo Convert filename to basename
+            string filename = Path.GetFileName(raw_filename);
+
             bool exists = File.Exists(path + "/" + filename);
             return exists;
         }

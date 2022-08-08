@@ -36,9 +36,9 @@ namespace libraries
                 case Scales.EnglishScale:
                     target = this._getEnglishScale();
                     break;
-                case Scales.NorthIndianClassicalUnicode:
+                case Scales.IndianClassicalUnicode:
                 default:
-                    target = this._getNorthIndianClassicalUnicode();
+                    target = this._getIndianClassicalUnicode();
                     break;
             }
 
@@ -108,7 +108,7 @@ namespace libraries
             return target;
         }
 
-        private Syllables _getNorthIndianClassicalUnicode()
+        private Syllables _getIndianClassicalUnicode()
         {
             Syllables target = new Syllables
             {

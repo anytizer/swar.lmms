@@ -48,10 +48,9 @@ namespace libraries
         {
             List<string> blocks = new List<string>() { };
 
-            string[] raw_blocks = { };
             if (split)
             {
-                raw_blocks = scales.Split(SpecialKeys.BLOCK_SEPARATOR);
+                string[] raw_blocks = scales.Split(SpecialKeys.BLOCK_SEPARATOR);
                 foreach (string _block in raw_blocks)
                 {
                     string block = _block.Trim();
@@ -285,7 +284,7 @@ namespace libraries
 
                 if (cell.notation == SpecialKeys.CONTINUATION)
                 {
-                    if (processed.Count() > 0)
+                    if (processed.Count > 0)
                     {
                         processed.Last().length += cell.length;
                     }
@@ -302,8 +301,8 @@ namespace libraries
                 }
                 else
                 {
-                    // cannot start with a -
-                    // @todo However, can start with x
+                    // cannot start with a "-"
+                    // @todo However, can start with a "x"
                     processed.Add(cell);
                 }
             }

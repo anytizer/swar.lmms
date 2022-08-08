@@ -23,9 +23,9 @@ namespace tests
             string key = "G'"; // G#4
 
             PianoKeys pk = new PianoKeys();
-            int GShap4 = pk.getPianoKey(key);
+            int GSharp4 = pk.getPianoKey(key);
 
-            Assert.AreEqual(60+8, GShap4);
+            Assert.AreEqual(60+8, GSharp4);
         }
 
         [TestMethod]
@@ -45,9 +45,9 @@ namespace tests
             string key = "C#*"; // C#5
 
             PianoKeys pk = new PianoKeys();
-            int CSharp = pk.getPianoKey(key);
+            int CSharp5 = pk.getPianoKey(key);
 
-            Assert.AreEqual(72, CSharp);
+            Assert.AreEqual(72, CSharp5);
         }
 
         [TestMethod]
@@ -56,9 +56,9 @@ namespace tests
             string key = "C'*"; // C#5
 
             PianoKeys pk = new PianoKeys();
-            int CSharp = pk.getPianoKey(key);
+            int CSharp5 = pk.getPianoKey(key);
 
-            Assert.AreEqual(72, CSharp);
+            Assert.AreEqual(72, CSharp5);
         }
 
         [TestMethod]
