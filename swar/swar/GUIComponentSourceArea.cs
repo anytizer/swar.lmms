@@ -84,5 +84,10 @@ namespace swar
 
             this.textBox1.Text = sargams;
         }
+
+        private void fromClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.textBox1.Text = System.Windows.Forms.Clipboard.GetText();
+        }
     }
 }
