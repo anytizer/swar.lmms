@@ -19,6 +19,7 @@ namespace dtos
 
             // common symbols
             lr.Add(new Replacement() { find = "°", replace = SpecialKeys.HIGHER_OCTAVE_NOTATION });
+            lr.Add(new Replacement() { find = "*", replace = SpecialKeys.HIGHER_OCTAVE_NOTATION }); // not necessary | same destination
             lr.Add(new Replacement() { find = "`", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "'", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "_", replace = SpecialKeys.CONTINUATION });

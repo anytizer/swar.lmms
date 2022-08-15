@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,11 @@ namespace swar
         public TextBox OutputArea()
         {
             return this.textBox2;
+        }
+
+        private void revealInExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", configs.Configurations.ReadWriteDirectory);
         }
     }
 }

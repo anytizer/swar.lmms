@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revealInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emailToAFriendToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +51,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveAsToolStripMenuItem});
+            this.saveAsToolStripMenuItem,
+            this.revealInExplorerToolStripMenuItem,
+            this.emailToAFriendToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -59,6 +63,19 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
+            // 
+            // revealInExplorerToolStripMenuItem
+            // 
+            this.revealInExplorerToolStripMenuItem.Name = "revealInExplorerToolStripMenuItem";
+            this.revealInExplorerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revealInExplorerToolStripMenuItem.Text = "Reveal in Explorer";
+            this.revealInExplorerToolStripMenuItem.Click += new System.EventHandler(this.revealInExplorerToolStripMenuItem_Click);
+            // 
+            // emailToAFriendToolStripMenuItem
+            // 
+            this.emailToAFriendToolStripMenuItem.Name = "emailToAFriendToolStripMenuItem";
+            this.emailToAFriendToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emailToAFriendToolStripMenuItem.Text = "Email to a Friend";
             // 
             // textBox2
             // 
@@ -97,5 +114,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ToolStripMenuItem revealInExplorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emailToAFriendToolStripMenuItem;
     }
 }
