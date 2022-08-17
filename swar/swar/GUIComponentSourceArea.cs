@@ -89,5 +89,10 @@ namespace swar
         {
             this.textBox1.Text = System.Windows.Forms.Clipboard.GetText();
         }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
