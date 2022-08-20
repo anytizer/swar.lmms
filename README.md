@@ -2,7 +2,7 @@
 Convert SARGAM Notes to English Scales __and__ XPT Pattern File for [LMMS](https://lmms.io/).
 
 Originally, this is an alternative solution for [Custom Piano Labels](https://github.com/LMMS/lmms/issues/6162).
-But the binary file can be used as an independent software as well.
+But the binary file can be used as an independent software as well. It is NOT affiliated with any vendors.
 
 ## Configurations
 [Configuration File](swar/configs/Configurations.cs) reads a directory to export LMMS .xpt files.
