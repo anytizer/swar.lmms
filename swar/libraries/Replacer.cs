@@ -22,6 +22,7 @@ namespace dtos
             lr.Add(new Replacement() { find = "*", replace = SpecialKeys.HIGHER_OCTAVE_NOTATION }); // not necessary | same destination
             lr.Add(new Replacement() { find = "`", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "'", replace = SpecialKeys.HASH }); // sharp/flat
+            lr.Add(new Replacement() { find = "’", replace = SpecialKeys.HASH }); // sharp/flat
             lr.Add(new Replacement() { find = "_", replace = SpecialKeys.CONTINUATION });
             lr.Add(new Replacement() { find = "~", replace = SpecialKeys.CONTINUATION });
             lr.Add(new Replacement() { find = "/", replace = SpecialKeys.PIPE });

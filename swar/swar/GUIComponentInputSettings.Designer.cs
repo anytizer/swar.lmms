@@ -37,12 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.label5);
@@ -69,7 +71,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(65, 66);
+            this.textBox6.Location = new System.Drawing.Point(65, 42);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(194, 23);
             this.textBox6.TabIndex = 18;
@@ -124,7 +126,22 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(27, 23);
             this.textBox3.TabIndex = 11;
-            this.textBox3.Text = "3";
+            this.textBox3.Text = "4";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Dadra - 6 beats",
+            "Roopak – 7 beats",
+            "Keharwa - 8 beats",
+            "Jhap – 10 beats",
+            "Ek – 12 beats",
+            "Teen Taal - 16 beats"});
+            this.comboBox1.Location = new System.Drawing.Point(63, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(196, 23);
+            this.comboBox1.TabIndex = 20;
             // 
             // GUIComponentInputSettings
             // 
@@ -134,6 +151,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "GUIComponentInputSettings";
             this.Size = new System.Drawing.Size(292, 147);
+            this.Load += new System.EventHandler(this.GUIComponentInputSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -151,5 +169,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

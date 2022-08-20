@@ -16,5 +16,10 @@ namespace swar
         {
             InitializeComponent();
         }
+
+        private void GUIComponentInputSettings_Load(object sender, EventArgs e)
+        {
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
     }
 }
