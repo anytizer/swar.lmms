@@ -27,7 +27,6 @@ It will write `swar-*.xpt` chunk files when the sargam notes change.
 You can later import these xpt xml files directly in the pianoroll of LMMS.
 
 Lately, ["pattern" has been changed with "midiclip"](https://github.com/LMMS/lmms/issues/5592) in the xml.
-So make sure you use a nightly build.
-eg. [lmms-1.3.0-alpha.1.216+](https://nightly.link/LMMS/lmms/workflows/build/master/mingw64.zip)
+So make sure you use a nightly build. eg. [lmms-1.3.0-alpha.1.221+](https://nightly.link/LMMS/lmms/workflows/build/master/mingw64.zip) from its [Nightly Build](https://nightly.link/LMMS/lmms/workflows/build/master).
 
 This is a work in progress, and any content, documentation, source code, compiled binaries, etc. are subject to change.
